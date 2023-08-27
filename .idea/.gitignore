@@ -1,0 +1,7 @@
+<<<<<<< HEAD
+# Default ignored files
+=======
+# 默认忽略的文件
+>>>>>>> 6404994 (数据抓取开源库：实现照片，消息，网络数据，通讯录，app日历时间，电量数据抓取)
+/shelf/
+/workspace.xml
