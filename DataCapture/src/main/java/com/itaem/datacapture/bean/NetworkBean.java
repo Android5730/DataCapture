@@ -39,6 +39,30 @@ public  class NetworkBean implements Serializable {
         return configured_wifi;
     }
 
+    public void setCurrent_wifi(CurrentWifiBean current_wifi) {
+        this.current_wifi = current_wifi;
+    }
+
+    public String getIp() {
+        return ip;
+    }
+
+    public void setIp(String ip) {
+        this.ip = ip;
+    }
+
+    public int getWifi_count() {
+        return wifi_count;
+    }
+
+    public void setWifi_count(int wifi_count) {
+        this.wifi_count = wifi_count;
+    }
+
+    public void setConfigured_wifi(List<ConfiguredWifiBean> configured_wifi) {
+        this.configured_wifi = configured_wifi;
+    }
+
     @SmartTable(name="当前wifi详情")
     public static class CurrentWifiBean implements Serializable {
         /**
@@ -62,6 +86,38 @@ public  class NetworkBean implements Serializable {
             this.name = name.equals("<unknown ssid>")?"":name;
             this.ssid = ssid.equals("<unknown ssid>")?"":ssid;
         }
+
+        public String getBssid() {
+            return bssid;
+        }
+
+        public void setBssid(String bssid) {
+            this.bssid = bssid;
+        }
+
+        public String getMac() {
+            return mac;
+        }
+
+        public void setMac(String mac) {
+            this.mac = mac;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public String getSsid() {
+            return ssid;
+        }
+
+        public void setSsid(String ssid) {
+            this.ssid = ssid;
+        }
     }
     @SmartTable(name="所有wifi详情")
     public static class ConfiguredWifiBean implements Serializable {
@@ -84,6 +140,38 @@ public  class NetworkBean implements Serializable {
             this.bssid = bssid;
             this.mac = mac;
             this.name = name;
+            this.ssid = ssid;
+        }
+
+        public String getBssid() {
+            return bssid;
+        }
+
+        public void setBssid(String bssid) {
+            this.bssid = bssid;
+        }
+
+        public String getMac() {
+            return mac;
+        }
+
+        public void setMac(String mac) {
+            this.mac = mac;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public String getSsid() {
+            return ssid;
+        }
+
+        public void setSsid(String ssid) {
             this.ssid = ssid;
         }
     }

@@ -108,4 +108,5 @@ public  class AppListBean implements Serializable {
     public void setVersion_code(String version_code) {
         this.version_code = version_code;
     }
+
 }

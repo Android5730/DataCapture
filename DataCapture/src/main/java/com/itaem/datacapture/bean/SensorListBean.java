@@ -50,4 +50,84 @@ public  class SensorListBean implements Serializable {
         this.vendor = vendor;
         this.version = version;
     }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getMaxRange() {
+        return maxRange;
+    }
+
+    public void setMaxRange(String maxRange) {
+        this.maxRange = maxRange;
+    }
+
+    public String getMinDelay() {
+        return minDelay;
+    }
+
+    public void setMinDelay(String minDelay) {
+        this.minDelay = minDelay;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPower() {
+        return power;
+    }
+
+    public void setPower(String power) {
+        this.power = power;
+    }
+
+    public String getResolution() {
+        return resolution;
+    }
+
+    public void setResolution(String resolution) {
+        this.resolution = resolution;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getVendor() {
+        return vendor;
+    }
+
+    public void setVendor(String vendor) {
+        this.vendor = vendor;
+    }
+
+    public String getVersion() {
+        return version;
+    }
+
+    public void setVersion(String version) {
+        this.version = version;
+    }
+
+    public String getRequiredPermission() {
+        return RequiredPermission;
+    }
+
+    public void setRequiredPermission(String requiredPermission) {
+        RequiredPermission = requiredPermission;
+    }
 }

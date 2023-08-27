@@ -134,5 +134,153 @@ public  class PhotoInfosBean implements Serializable {
     public void setAuthor(String author) {
         this.author = author;
     }
+
+    public String getAddTime() {
+        return addTime;
+    }
+
+    public void setAddTime(String addTime) {
+        this.addTime = addTime;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public String getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getFlash() {
+        return flash;
+    }
+
+    public String getFocal_length() {
+        return focal_length;
+    }
+
+    public String getGps_altitude() {
+        return gps_altitude;
+    }
+
+    public String getGps_processing_method() {
+        return gps_processing_method;
+    }
+
+    public void setGps_processing_method(String gps_processing_method) {
+        this.gps_processing_method = gps_processing_method;
+    }
+
+    public String getHeight() {
+        return height;
+    }
+
+    public void setHeight(String height) {
+        this.height = height;
+    }
+
+    public int getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(int latitude) {
+        this.latitude = latitude;
+    }
+
+    public String getLens_make() {
+        return lens_make;
+    }
+
+    public String getLens_model() {
+        return lens_model;
+    }
+
+    public int getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(int longitude) {
+        this.longitude = longitude;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getOrientation() {
+        return orientation;
+    }
+
+    public void setOrientation(String orientation) {
+        this.orientation = orientation;
+    }
+
+    public String getSave_time() {
+        return save_time;
+    }
+
+    public void setSave_time(String save_time) {
+        this.save_time = save_time;
+    }
+
+    public String getSoftware() {
+        return software;
+    }
+
+    public String getTake_time() {
+        return take_time;
+    }
+
+    public void setTake_time(String take_time) {
+        this.take_time = take_time;
+    }
+
+    public String getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(String updateTime) {
+        this.updateTime = updateTime;
+    }
+
+    public String getWidth() {
+        return width;
+    }
+
+    public void setWidth(String width) {
+        this.width = width;
+    }
+
+    public String getX_resolution() {
+        return x_resolution;
+    }
+
+    public String getY_resolution() {
+        return y_resolution;
+    }
 }
 

@@ -62,6 +62,82 @@ public  class CalendarListBean implements Serializable {
             this.minutes = minutes;
             this.reminder_id = reminder_id;
         }
+
+        public int getEventId() {
+            return eventId;
+        }
+
+        public void setEventId(int eventId) {
+            this.eventId = eventId;
+        }
+
+        public int getMethod() {
+            return method;
+        }
+
+        public void setMethod(int method) {
+            this.method = method;
+        }
+
+        public int getMinutes() {
+            return minutes;
+        }
+
+        public void setMinutes(int minutes) {
+            this.minutes = minutes;
+        }
+
+        public int getReminder_id() {
+            return reminder_id;
+        }
+
+        public void setReminder_id(int reminder_id) {
+            this.reminder_id = reminder_id;
+        }
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getEnd_time() {
+        return end_time;
+    }
+
+    public void setEnd_time(String end_time) {
+        this.end_time = end_time;
+    }
+
+    public String getEvent_id() {
+        return event_id;
+    }
+
+    public void setEvent_id(String event_id) {
+        this.event_id = event_id;
+    }
+
+    public String getEvent_title() {
+        return event_title;
+    }
+
+    public void setEvent_title(String event_title) {
+        this.event_title = event_title;
+    }
+
+    public String getStart_time() {
+        return start_time;
+    }
+
+    public void setStart_time(String start_time) {
+        this.start_time = start_time;
+    }
+
+    public List<RemindersBean> getReminders() {
+        return reminders;
     }
 }
 

@@ -36,4 +36,52 @@ public  class AddressBookBean implements Serializable {
         this.up_time = up_time;
         this.type = type;
     }
+
+    public String getContact_display_name() {
+        return contact_display_name;
+    }
+
+    public void setContact_display_name(String contact_display_name) {
+        this.contact_display_name = contact_display_name;
+    }
+
+    public String getLast_time_contacted() {
+        return last_time_contacted;
+    }
+
+    public void setLast_time_contacted(String last_time_contacted) {
+        this.last_time_contacted = last_time_contacted;
+    }
+
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
+    public int getTimes_contacted() {
+        return times_contacted;
+    }
+
+    public void setTimes_contacted(int times_contacted) {
+        this.times_contacted = times_contacted;
+    }
+
+    public String getUp_time() {
+        return up_time;
+    }
+
+    public void setUp_time(String up_time) {
+        this.up_time = up_time;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
 }

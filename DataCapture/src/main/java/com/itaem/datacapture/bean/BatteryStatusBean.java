@@ -42,8 +42,60 @@ public  class BatteryStatusBean implements Serializable {
         this.is_usb_charge = is_usb_charge;
     }
 
+    public String getBattery_level() {
+        return battery_level;
+    }
+
+    public void setBattery_level(String battery_level) {
+        this.battery_level = battery_level;
+    }
+
+    public String getBattery_max() {
+        return battery_max;
+    }
+
+    public void setBattery_max(String battery_max) {
+        this.battery_max = battery_max;
+    }
+
     public int getBattery_pct() {
         return battery_pct;
+    }
+
+    public void setBattery_pct(int battery_pct) {
+        this.battery_pct = battery_pct;
+    }
+
+    public int getBattery_state() {
+        return battery_state;
+    }
+
+    public void setBattery_state(int battery_state) {
+        this.battery_state = battery_state;
+    }
+
+    public int getIs_ac_charge() {
+        return is_ac_charge;
+    }
+
+    public void setIs_ac_charge(int is_ac_charge) {
+        this.is_ac_charge = is_ac_charge;
+    }
+
+    public int getIs_charging() {
+        return is_charging;
+    }
+
+    public void setIs_charging(int is_charging) {
+        this.is_charging = is_charging;
+    }
+
+    public int getIs_usb_charge() {
+        return is_usb_charge;
+    }
+
+    public void setIs_usb_charge(int is_usb_charge) {
+        this.is_usb_charge = is_usb_charge;
     }
 }
 
