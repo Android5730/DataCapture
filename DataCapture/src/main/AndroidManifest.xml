@@ -1,4 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
-
+    <!-- 定位权限，需动态请求 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- 通讯录，需动态请求 -->
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <!-- 日历信息，需动态请求 -->
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <!-- wifi信息,不用动态请求 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- SMS信息,需动态请求 -->
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <!-- photo信息，需动态请求-->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <!-- 取消分区存储-->
+    <meta-data
+        android:name="ScopedStorage"
+        android:value="true" />
 </manifest>
