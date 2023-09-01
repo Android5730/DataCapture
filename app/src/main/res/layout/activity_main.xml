@@ -137,4 +137,21 @@
             android:text="传感器信息——无需申请权限"/>
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/btn_Hardware"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="获取硬件信息"/>
+        <Button
+            android:id="@+id/Hardware_permission"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:text="硬件信息——无需申请权限"/>
+    </LinearLayout>
+
 </LinearLayout>

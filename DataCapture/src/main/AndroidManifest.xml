@@ -14,6 +14,9 @@
     <!-- photo信息，需动态请求-->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <!-- 取消分区存储-->
+    <!-- 硬件信息，不需动态请求-->
+    <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE" />
+
 
     <meta-data
         android:name="ScopedStorage"

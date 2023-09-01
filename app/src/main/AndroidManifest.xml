@@ -3,17 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools">
     <!-- 定位权限，需动态请求 -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <!-- 通讯录，需动态请求 -->
-    <uses-permission android:name="android.permission.READ_CONTACTS" />
-    <!-- 日历信息，需动态请求 -->
-    <uses-permission android:name="android.permission.READ_CALENDAR" />
-    <!-- wifi信息,不用动态请求 -->
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <!-- SMS信息,需动态请求 -->
-    <uses-permission android:name="android.permission.READ_SMS" />
-    <!-- photo信息，需动态请求-->
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- 通讯录，需动态请求 -->
+    <uses-permission android:name="android.permission.READ_CONTACTS" /> <!-- 日历信息，需动态请求 -->
+    <uses-permission android:name="android.permission.READ_CALENDAR" /> <!-- wifi信息,不用动态请求 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- SMS信息,需动态请求 -->
+    <uses-permission android:name="android.permission.READ_SMS" /> <!-- photo信息，需动态请求 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -21,15 +16,23 @@
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:requestLegacyExternalStorage="true"
         android:theme="@style/Theme.DataCapture"
         tools:targetApi="31">
-        <!-- 取消分区存储-->
+        <activity
+            android:name=".DataBeanActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <!-- 取消分区存储 -->
         <meta-data
             android:name="ScopedStorage"
             android:value="true" />
+
         <activity
             android:name=".BeanActivity"
             android:exported="false">

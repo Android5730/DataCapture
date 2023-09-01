@@ -1,14 +1,12 @@
 package com.itaem.datacapture;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.Manifest;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.hjq.permissions.OnPermissionCallback;
 import com.hjq.permissions.Permission;
@@ -30,6 +28,16 @@ public class MainActivity extends AppCompatActivity {
         initSMSList();
         initPhotoList();
         initSensorList();
+        initHardWateBean();
+    }
+
+    private void initHardWateBean() {
+        findViewById(R.id.btn_Hardware).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 
     private void initSensorList() {

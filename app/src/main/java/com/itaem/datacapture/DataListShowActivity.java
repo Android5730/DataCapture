@@ -29,7 +29,7 @@ import com.itaem.datacapture.bean.SmsBean;
 import java.util.Collections;
 import java.util.List;
 
-public class DataShowActivity extends AppCompatActivity {
+public class DataListShowActivity extends AppCompatActivity {
     SmartTable table;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
