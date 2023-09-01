@@ -56,7 +56,7 @@ public class DataListShowActivity extends AppCompatActivity {
                 break;
             case "NetworkBean":
                 NetworkBean networkBean = NetworkBeanUtils.getNetworkBean(this);
-                table.setData(Collections.singletonList(networkBean));
+                table.setData(networkBean.getConfigured_wifi());
                 networkClick(networkBean);
                 break;
             case "SMSBean":

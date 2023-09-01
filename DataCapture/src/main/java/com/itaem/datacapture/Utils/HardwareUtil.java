@@ -22,7 +22,7 @@ public class HardwareUtil {
     /**
      * 获取硬件信息
      */
-    public HardwareBean getHardwareBean(Context context) {
+    public static HardwareBean getHardwareBean(Context context) {
         String board = Build.BOARD; // 主板
         String brand = Build.BRAND;// 设备品牌
         String kernelVersion = System.getProperty("os.version");
@@ -47,7 +47,7 @@ public class HardwareUtil {
         return new HardwareBean(board, brand, cores, device_height, device_name, device_width,
                 model, physical_size, production_date, release, sdk_version, serial_number);
     }
-    public static String getScreenSizeOfDevice2(Context context) {
+    private static String getScreenSizeOfDevice2(Context context) {
         Point point = new Point();
         WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
         wm.getDefaultDisplay().getRealSize(point);
@@ -59,7 +59,7 @@ public class HardwareUtil {
     }
 
 
-    public static String getSerialNumbers() {
+    private static String getSerialNumbers() {
         String serial = "";
         try {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {//9.0+
@@ -80,7 +80,7 @@ public class HardwareUtil {
     /**
      * 获取出厂时间戳(设备爆空，后续解决)
      */
-    private String getProductionDate() throws IOException {
+    private static String getProductionDate() throws IOException {
         String manufacture = Build.MANUFACTURER;
         String device = Build.DEVICE;
         String product = Build.PRODUCT;

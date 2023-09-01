@@ -41,7 +41,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".DataShowActivity"
+            android:name=".DataListShowActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

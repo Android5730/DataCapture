@@ -58,5 +58,41 @@ public  class HardwareBean implements Serializable {
     public int getDevice_width() {
         return device_width;
     }
+
+    public String getBoard() {
+        return board;
+    }
+
+    public String getCores() {
+        return cores;
+    }
+
+    public String getDevice_name() {
+        return device_name;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public String getPhysical_size() {
+        return physical_size;
+    }
+
+    public String getProduction_date() {
+        return production_date;
+    }
+
+    public String getRelease() {
+        return release;
+    }
+
+    public String getSdk_version() {
+        return sdk_version;
+    }
+
+    public String getSerial_number() {
+        return serial_number;
+    }
 }
 

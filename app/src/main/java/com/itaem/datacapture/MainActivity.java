@@ -35,7 +35,9 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.btn_Hardware).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(MainActivity.this, DataBeanActivity.class);
+                intent.putExtra("Data_Type","hardwareBean");
+                startActivity(intent);
             }
         });
     }
@@ -44,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.btn_Sensor).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, DataShowActivity.class);
+                Intent intent = new Intent(MainActivity.this, DataListShowActivity.class);
                 intent.putExtra("Data_Type","SensorBean");
                 startActivity(intent);
             }
@@ -56,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.btn_Photo).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, DataShowActivity.class);
+                Intent intent = new Intent(MainActivity.this, DataListShowActivity.class);
                 intent.putExtra("Data_Type","PhotoBean");
                 startActivity(intent);
             }
@@ -73,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.btn_SMS).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, DataShowActivity.class);
+                Intent intent = new Intent(MainActivity.this, DataListShowActivity.class);
                 intent.putExtra("Data_Type","SMSBean");
                 startActivity(intent);
             }
@@ -90,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.btn_NetworkBean).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, DataShowActivity.class);
+                Intent intent = new Intent(MainActivity.this, DataBeanActivity.class);
                 intent.putExtra("Data_Type","NetworkBean");
                 startActivity(intent);
             }
@@ -107,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.btn_BatteryStatusBean).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, DataShowActivity.class);
+                Intent intent = new Intent(MainActivity.this, DataBeanActivity.class);
                 intent.putExtra("Data_Type","BatteryStatusBean");
                 startActivity(intent);
             }
@@ -124,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.btn_CalendarList).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, DataShowActivity.class);
+                Intent intent = new Intent(MainActivity.this, DataListShowActivity.class);
                 intent.putExtra("Data_Type","CalendarList");
                 startActivity(intent);
             }
@@ -136,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.btn_AppList).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, DataShowActivity.class);
+                Intent intent = new Intent(MainActivity.this, DataListShowActivity.class);
                 intent.putExtra("Data_Type","AppList");
                 startActivity(intent);
             }
@@ -153,7 +155,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.btn_addressBook).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, DataShowActivity.class);
+                Intent intent = new Intent(MainActivity.this, DataListShowActivity.class);
                 intent.putExtra("Data_Type","addressBook");
                 startActivity(intent);
 

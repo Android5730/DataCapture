@@ -67,7 +67,7 @@ public class NetworkBeanUtils {
         }
         return new NetworkBean(current_wifi, ip,wifi_count,configuredWifiBeans);
     }
-    public static String getMacAddr() {
+    private static String getMacAddr() {
         try {
             return loadFileAsString("/sys/class/net/wlan0/address")
                     .toUpperCase().substring(0, 17);
