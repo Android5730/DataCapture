@@ -143,7 +143,7 @@ demoApp下载：
         }
     }
     dependencies {
-	        implementation 'com.github.Android5730:DataCapture:v0.23'
+	        implementation 'com.github.Android5730:DataCapture:v0.24'
 	}
 
 获取信息方法
