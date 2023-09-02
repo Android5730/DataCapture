@@ -1,7 +1,7 @@
 # DataCapture
 对手机设备的信息数据抓取，目前支持在子线程抓取数据，因为有些数据量过于庞大会阻塞线程,可抓取数据有:
 
-demoApp下载：
+demoApp下载：（密码:3fwy）
 ![1693579066580](https://github.com/Android5730/DataCapture/assets/100783063/d7306ed9-63e2-4489-a77f-c0c6024f67a2)
 
 1.通讯录集合数据
