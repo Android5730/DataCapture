@@ -93,16 +93,17 @@ public class DataBeanActivity extends AppCompatActivity {
         beanAdapter.setOnItemClick(new BeanAdapter.onItemClick() {
             @Override
             public void onItemClick(int position) {
-                if (canClickPosition.contains(position));
-                    if (position==3){
+                if (canClickPosition.contains(position)) {
+                    if (position == 3) {
                         Intent intent = new Intent(DataBeanActivity.this, DataListShowActivity.class);
-                        intent.putExtra("Data_Type","NetworkBean");
+                        intent.putExtra("Data_Type", "NetworkBean");
                         startActivity(intent);
-                    }else if (position==0){
+                    } else if (position == 0) {
                         Intent intent = new Intent(DataBeanActivity.this, DataBeanActivity.class);
-                        intent.putExtra("Data_Type","CurrentWifiBean");
+                        intent.putExtra("Data_Type", "CurrentWifiBean");
                         startActivity(intent);
                     }
+                }
             }
         });
     }
