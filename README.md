@@ -1,6 +1,9 @@
 # DataCapture
 对手机设备的信息数据抓取，目前支持在子线程抓取数据，因为有些数据量过于庞大会阻塞线程,可抓取数据有:
 
+demoApp下载：（密码:3fwy）
+![1693579066580](https://github.com/Android5730/DataCapture/assets/100783063/d7306ed9-63e2-4489-a77f-c0c6024f67a2)
+
 1.通讯录集合数据
 | 字段名 | 详情 |
 |--|--|
@@ -98,7 +101,38 @@
 | vendor | 厂商字符串 |
 | version |版本|
 
-8.wifi信息数据...等等数据
+8.wifi信息数据
+| 字段名 | 详情 |
+|--|--|
+| current_wifi |当前WIFI详情|
+| ip |网络IP（内网）|
+| wifi_count | wifi 个数|
+| configured_wifi | 配置WIFI,附近的wifi|
+
+8.1 wifi详情
+| 字段名 | 详情 |
+|--|--|
+| bssid |bssid|
+| mac |mac|
+| name | name|
+| ssid | ssid|
+
+9.硬件信息数据
+| 字段名 | 详情 |
+|--|--|
+| board |主板|
+| brand |设备品牌|
+| cores |设备内核|
+| device_height |分辨率高|
+| device_name | 设备名称 |
+| device_width |分辨率宽|
+| model |设备型号|
+| physical_size | 物理尺寸|
+| production_date | 手机出厂时间戳 |
+| release |系统版本|
+| sdk_version | SDK版本|
+| serial_number | 设备序列号 |
+
 
 导入依赖方式：
 
@@ -109,7 +143,7 @@
         }
     }
     dependencies {
-	        implementation 'com.github.Android5730:DataCapture:v0.23'
+	        implementation 'com.github.Android5730:DataCapture:v0.24'
 	}
 
 获取信息方法
@@ -124,12 +158,18 @@ List<CalendarListBean> calendarListBean = CalendarListUtil.getCalendarListBean(t
 BatteryStatusBean batteryState = BatteryStatusUtil.getBatteryState(this);
 // 获取wifi信息
 NetworkBean networkBean = NetworkBeanUtils.getNetworkBean(this);
+// 获取wifi信息详情
+NetworkBean.CurrentWifiBean current_wifi = NetworkBeanUtils.getNetworkBean(this).getCurrent_wifi();
+// 获取附近wifi集合
 // 获取sms短信信息
 List<SmsBean> smsList = SmsUtil.getSmsList(this);
 // 获取照片集合信息
 List<PhotoInfosBean> photoInfosBean = PhotoInfosUtil.getPhotoInfosBean(this, LocationUtils.getInstance(this).showLocation());
 // 获取传感器集合信息
 List<SensorListBean> sensorListBean = SensorListUtil.getSensorListBean(this);
+// 获取硬件信息
+HardwareBean hardwareBean = HardwareUtil.getHardwareBean(this);
+
 
 ```
     若是大家感兴趣，我后续会更新此库，方便大家获取更多的数据
