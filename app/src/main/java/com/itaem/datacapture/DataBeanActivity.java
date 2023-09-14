@@ -11,6 +11,7 @@ import android.view.View;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.itaem.datacapture.Utils.BatteryStatusUtil;
 import com.itaem.datacapture.Utils.HardwareUtil;
+import com.itaem.datacapture.Utils.LocationUtils;
 import com.itaem.datacapture.Utils.NetworkBeanUtils;
 import com.itaem.datacapture.bean.BatteryStatusBean;
 import com.itaem.datacapture.bean.HardwareBean;
@@ -85,6 +86,18 @@ public class DataBeanActivity extends AppCompatActivity {
                 list.add(current_wifi.getName());
                 list.add(current_wifi.getSsid());
                 break;
+            case "AddressInfo":
+                LocationUtils instance = LocationUtils.getInstance(this);
+                LocationUtils.AddressInfo addressInfo = instance.getAddressInfo();
+                String address = instance.getAddress();
+                list.add(addressInfo.getGps_latitude()==null?instance.getLatitude():addressInfo.getGps_latitude()); // list.add(instance.getLatitude());
+                list.add(addressInfo.getGps_longitude()==null?instance.getLongitude():addressInfo.getGps_longitude());// list.add(instance.getLongitude());
+                list.add(addressInfo.getGps_address_street());
+                list.add(addressInfo.getGps_address_province());
+                list.add(addressInfo.getGps_address_city());
+                list.add(addressInfo.getGps_address_country());
+                list.add(addressInfo.getGps_address_countryCode());
+                list.add(address);
         }
         beanAdapter.setData(list);
     }
@@ -125,6 +138,10 @@ public class DataBeanActivity extends AppCompatActivity {
                 return "硬件数据信息";
             case "NetworkBean":
                 return "网络数据信息";
+            case "CurrentWifiBean":
+                return "当前wifi信息";
+            case "AddressInfo":
+                return "地址数据信息";
 
         }
         return "错误数据跳转";

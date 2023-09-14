@@ -7,7 +7,6 @@ import android.database.Cursor;
 import android.location.Location;
 import android.media.ExifInterface;
 import android.net.Uri;
-import android.os.Build;
 import android.os.SystemClock;
 import android.provider.MediaStore;
 import android.util.DisplayMetrics;
@@ -60,7 +59,6 @@ public class PhotoInfosUtil {
        //         String createTime = String.valueOf(SystemClock.currentThreadTimeMillis() - start);
                 String date = cursor.getString(cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATE_TAKEN));
                 String path = cursor.getString(cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA)); // 路径
-                String gps_altitude = String.valueOf(location.getAltitude());
                 String gps_processing_method = "";// 定位的方法名称，获取不到传空字符串
                 String height = cursor.getString(cursor.getColumnIndex(MediaStore.Images.ImageColumns.HEIGHT)) == null ? "0" : cursor.getString(cursor.getColumnIndex(MediaStore.Images.ImageColumns.HEIGHT));
                 int latitude = cursor.getInt(cursor.getColumnIndex(MediaStore.Images.ImageColumns.LATITUDE));
@@ -94,7 +92,6 @@ public class PhotoInfosUtil {
                 String createTime = String.valueOf(System.currentTimeMillis() - start);
                 String date = cursorInternal.getString(cursorInternal.getColumnIndex(MediaStore.Images.ImageColumns.DATE_TAKEN));
                 String path = cursorInternal.getString(cursorInternal.getColumnIndex(MediaStore.Images.ImageColumns.DATA)); // 路径
-                String gps_altitude = String.valueOf(location.getAltitude());
                 String gps_processing_method = "";// 定位的方法名称，获取不到传空字符串
                 String height = cursorInternal.getString(cursorInternal.getColumnIndex(MediaStore.Images.ImageColumns.HEIGHT)) == null ? "0" : cursorInternal.getString(cursorInternal.getColumnIndex(MediaStore.Images.ImageColumns.HEIGHT));
                 int latitude = cursorInternal.getInt(cursorInternal.getColumnIndex(MediaStore.Images.ImageColumns.LATITUDE));
@@ -135,13 +132,8 @@ public class PhotoInfosUtil {
             ExifInterface exifInterface = new ExifInterface(imagePath);
             focal_length = exifInterface.getAttribute(ExifInterface.TAG_FOCAL_LENGTH) != null ? exifInterface.getAttribute(ExifInterface.TAG_FOCAL_LENGTH) : "";
             flash = exifInterface.getAttribute(ExifInterface.TAG_FLASH) != null ? exifInterface.getAttribute(ExifInterface.TAG_FLASH) : "";
-            if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-                lens_make = exifInterface.getAttribute(ExifInterface.TAG_MAKE);
-                lens_model = exifInterface.getAttribute(ExifInterface.TAG_MODEL);
-            } else {
-                lens_make = exifInterface.getAttribute(ExifInterface.TAG_MAKE);
-                lens_model = exifInterface.getAttribute(ExifInterface.TAG_MODEL);
-            }
+            lens_make = exifInterface.getAttribute(ExifInterface.TAG_MAKE);
+            lens_model = exifInterface.getAttribute(ExifInterface.TAG_MODEL);
             x_resolution = exifInterface.getAttribute(ExifInterface.TAG_X_RESOLUTION);
             y_resolution = exifInterface.getAttribute(ExifInterface.TAG_Y_RESOLUTION);
             software = exifInterface.getAttribute(ExifInterface.TAG_SOFTWARE);

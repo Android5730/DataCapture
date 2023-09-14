@@ -29,6 +29,24 @@ public class MainActivity extends AppCompatActivity {
         initPhotoList();
         initSensorList();
         initHardWateBean();
+        initAddressInfo();
+    }
+
+    private void initAddressInfo() {
+        findViewById(R.id.btn_AddressInfo).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, DataBeanActivity.class);
+                intent.putExtra("Data_Type","AddressInfo");
+                startActivity(intent);
+            }
+        });
+        findViewById(R.id.AddressInfo_permission).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                requestPermission(Permission.ACCESS_COARSE_LOCATION);
+            }
+        });
     }
 
     private void initHardWateBean() {

@@ -81,10 +81,10 @@ public  class NetworkBean implements Serializable {
         private String ssid;
 
         public CurrentWifiBean(String bssid, String mac, String name, String ssid) {
-            this.bssid = bssid.equals("02:00:00:00:00:00")?"":bssid;
-            this.mac = mac.equals("02:00:00:00:00:00")?"":mac;
-            this.name = name.equals("<unknown ssid>")?"":name;
-            this.ssid = ssid.equals("<unknown ssid>")?"":ssid;
+            this.bssid = bssid==null||bssid.equals("02:00:00:00:00:00")?"":bssid;
+            this.mac = mac==null||mac.equals("02:00:00:00:00:00")?"":mac;
+            this.name = name==null||name.equals("<unknown ssid>")?"":name;
+            this.ssid = ssid==null||ssid.equals("<unknown ssid>")?"":ssid;
         }
 
         public String getBssid() {
@@ -137,10 +137,10 @@ public  class NetworkBean implements Serializable {
         private String ssid;
 
         public ConfiguredWifiBean(String bssid, String mac, String name, String ssid) {
-            this.bssid = bssid;
-            this.mac = mac;
-            this.name = name;
-            this.ssid = ssid;
+            this.bssid = bssid==null||bssid.equals("02:00:00:00:00:00")?"":bssid;
+            this.mac = mac==null||mac.equals("02:00:00:00:00:00")?"":mac;
+            this.name = name==null||name.equals("<unknown ssid>")?"":name;
+            this.ssid = ssid==null||ssid.equals("<unknown ssid>")?"":ssid;
         }
 
         public String getBssid() {

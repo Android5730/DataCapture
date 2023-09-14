@@ -17,6 +17,7 @@ public class BeanAdapter extends RecyclerView.Adapter<BeanAdapter.ViewHolder> {
     private final String[] NetworkArrays = new String[4];
     private final String[] NetworkCurrentWifiBeanArrays = new String[4];
     private final String[] BatteryStatusArrays = new String[7];
+    private final String[] AddressInfoArrays = new String[8];
     private final String type;
     private List<String> list;
 
@@ -67,6 +68,16 @@ public class BeanAdapter extends RecyclerView.Adapter<BeanAdapter.ViewHolder> {
                 NetworkCurrentWifiBeanArrays[2] = "名称(name):";
                 NetworkCurrentWifiBeanArrays[3] = "ssid(ssid):";
                 break;
+            case "AddressInfo":
+                AddressInfoArrays[0] = "经度(gps_longitude):";
+                AddressInfoArrays[1] = "维度(gps_latitude):";
+                AddressInfoArrays[2] = "街道(gps_address_street):";
+                AddressInfoArrays[3] = "省份(gps_address_province):";
+                AddressInfoArrays[4] = "城市(gps_address_city):";
+                AddressInfoArrays[5] = "国家(gps_address_country):";
+                AddressInfoArrays[6] = "国家代码(gps_address_countryCode):";
+                AddressInfoArrays[7] = "总体:";
+                break;
         }
     }
 
@@ -108,6 +119,9 @@ public class BeanAdapter extends RecyclerView.Adapter<BeanAdapter.ViewHolder> {
                 break;
             case "CurrentWifiBean":
                 holder.item_dec.setText(NetworkCurrentWifiBeanArrays[position] + list.get(position));
+                break;
+            case "AddressInfo":
+                holder.item_dec.setText(AddressInfoArrays[position] + list.get(position));
                 break;
         }
 
