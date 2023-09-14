@@ -564,7 +564,7 @@ public  class DeviceInfoBean implements Serializable {
 
         private String dbm; // 手机的信号强度 默认值-1
         //    private int dbmClass;
-        private int keyboard; // 连接到设备的键盘种类
+//        private int keyboard; // 连接到设备的键盘种类
         private String last_boot_time; // 最后一次启动时间
         private int root_jailbreak; // 是否 root
         private int simulator; // 是否为模拟器
@@ -572,7 +572,7 @@ public  class DeviceInfoBean implements Serializable {
         public OtherDataBean(String dbm, int keyboard, String last_boot_time, int root_jailbreak, int simulator) {
             this.dbm = dbm;
             //           dbmClass = 0;
-            this.keyboard = keyboard;
+//            this.keyboard = keyboard;
             this.last_boot_time = last_boot_time;
             this.root_jailbreak = root_jailbreak;
             this.simulator = simulator;

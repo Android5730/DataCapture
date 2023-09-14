@@ -30,6 +30,24 @@ public class MainActivity extends AppCompatActivity {
         initSensorList();
         initHardWateBean();
         initAddressInfo();
+        initOtherDataBean();
+    }
+
+    private void initOtherDataBean() {
+        findViewById(R.id.btn_OtherDataBean).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, DataBeanActivity.class);
+                intent.putExtra("Data_Type","OtherDataBean");
+                startActivity(intent);
+            }
+        });
+        findViewById(R.id.OtherDataBean_permission).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                requestPermission(Permission.ACCESS_COARSE_LOCATION);
+            }
+        });
     }
 
     private void initAddressInfo() {

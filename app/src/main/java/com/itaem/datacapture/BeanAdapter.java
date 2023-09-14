@@ -18,6 +18,7 @@ public class BeanAdapter extends RecyclerView.Adapter<BeanAdapter.ViewHolder> {
     private final String[] NetworkCurrentWifiBeanArrays = new String[4];
     private final String[] BatteryStatusArrays = new String[7];
     private final String[] AddressInfoArrays = new String[8];
+    private final String[] OtherDataBeanArrays = new String[4];
     private final String type;
     private List<String> list;
 
@@ -78,6 +79,12 @@ public class BeanAdapter extends RecyclerView.Adapter<BeanAdapter.ViewHolder> {
                 AddressInfoArrays[6] = "国家代码(gps_address_countryCode):";
                 AddressInfoArrays[7] = "总体:";
                 break;
+            case "OtherDataBean":
+                OtherDataBeanArrays[0] = "手机的信号强度,默认-1(dbm):";
+                OtherDataBeanArrays[1] = "最后一次启动时间(last_boot_time):";
+                OtherDataBeanArrays[2] = "是否root,true:1,false:0(root_jailbreak):";
+                OtherDataBeanArrays[3] = "是否为模拟器,true:1,false:0(simulator):";
+                break;
         }
     }
 
@@ -122,6 +129,9 @@ public class BeanAdapter extends RecyclerView.Adapter<BeanAdapter.ViewHolder> {
                 break;
             case "AddressInfo":
                 holder.item_dec.setText(AddressInfoArrays[position] + list.get(position));
+                break;
+            case "OtherDataBean":
+                holder.item_dec.setText(OtherDataBeanArrays[position] + list.get(position));
                 break;
         }
 

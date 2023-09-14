@@ -13,9 +13,11 @@ import com.itaem.datacapture.Utils.BatteryStatusUtil;
 import com.itaem.datacapture.Utils.HardwareUtil;
 import com.itaem.datacapture.Utils.LocationUtils;
 import com.itaem.datacapture.Utils.NetworkBeanUtils;
+import com.itaem.datacapture.Utils.OtherDataUtil;
 import com.itaem.datacapture.bean.BatteryStatusBean;
 import com.itaem.datacapture.bean.HardwareBean;
 import com.itaem.datacapture.bean.NetworkBean;
+import com.itaem.datacapture.bean.OtherDataBean;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -98,6 +100,12 @@ public class DataBeanActivity extends AppCompatActivity {
                 list.add(addressInfo.getGps_address_country());
                 list.add(addressInfo.getGps_address_countryCode());
                 list.add(address);
+            case "OtherDataBean":
+                OtherDataBean otherDataBean = OtherDataUtil.getOtherDataBean(this);
+                list.add(otherDataBean.getDbm());
+                list.add(otherDataBean.getLast_boot_time());
+                list.add(String.valueOf(otherDataBean.getRoot_jailbreak()));
+                list.add(String.valueOf(otherDataBean.getSimulator()));
         }
         beanAdapter.setData(list);
     }
@@ -142,6 +150,8 @@ public class DataBeanActivity extends AppCompatActivity {
                 return "当前wifi信息";
             case "AddressInfo":
                 return "地址数据信息";
+            case "OtherDataBean":
+                return "其他数据信息";
 
         }
         return "错误数据跳转";
