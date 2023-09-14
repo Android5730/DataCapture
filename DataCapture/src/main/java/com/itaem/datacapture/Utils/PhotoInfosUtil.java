@@ -1,8 +1,10 @@
 package com.itaem.datacapture.Utils;// 2023/8/13
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.location.Location;
 import android.media.ExifInterface;
@@ -10,6 +12,9 @@ import android.net.Uri;
 import android.os.SystemClock;
 import android.provider.MediaStore;
 import android.util.DisplayMetrics;
+import android.util.Log;
+
+import androidx.core.app.ActivityCompat;
 
 import com.itaem.datacapture.bean.PhotoInfosBean;
 
@@ -25,6 +30,10 @@ public class PhotoInfosUtil {
     @SuppressLint("Range")
     public static List<PhotoInfosBean> getPhotoInfosBean(Context context, Location location) {
         List<PhotoInfosBean> photoInfosBeans = new ArrayList<>();
+        if (ActivityCompat.checkSelfPermission(context, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            Log.d("数据抓取:photoInfosBeans", "并未申请相关权限");
+            return photoInfosBeans;
+        }
         long start = System.currentTimeMillis();
         // 定义要查询的图片的URI
         Uri uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;

@@ -1,11 +1,17 @@
 package com.itaem.datacapture.Utils;// 2023/8/13
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.CalendarContract;
+import android.util.Log;
+import android.widget.Toast;
+
+import androidx.core.app.ActivityCompat;
 
 import com.itaem.datacapture.bean.CalendarListBean;
 
@@ -20,6 +26,10 @@ public class CalendarListUtil {
     @SuppressLint("Range")
     public static List<CalendarListBean> getCalendarListBean(Context context) {
         List<CalendarListBean> listBeans = new ArrayList<>();
+        if (ActivityCompat.checkSelfPermission(context, Manifest.permission.READ_CALENDAR) != PackageManager.PERMISSION_GRANTED) {
+            Log.d("数据抓取:CalendarListUtil", "并未申请相关权限");
+            return listBeans;
+        }
         Cursor eventCursor = context.getContentResolver().query(CalendarContract.Events.CONTENT_URI, null, null, null, null);
         ContentResolver cr = context.getContentResolver();
         Uri uri = CalendarContract.Reminders.CONTENT_URI;

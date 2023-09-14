@@ -68,6 +68,7 @@ public class LocationUtils {
                     Log.d("TAG", "longitude：gps_toOpen" );
                     // 需要检查权限,否则编译报错,想抽取成方法都不行,还是会报错。只能这样重复 code 了。
                     if (ActivityCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                        Log.d("数据抓取:LocationUtils", "并未申请相关权限");
                         return;
                     }
                     Location location = locationManager.getLastKnownLocation(proviceder);

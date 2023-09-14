@@ -1,10 +1,15 @@
 package com.itaem.datacapture.Utils;// 2023/8/13
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.provider.Telephony;
+import android.util.Log;
+
+import androidx.core.app.ActivityCompat;
 
 import com.itaem.datacapture.bean.SmsBean;
 
@@ -19,6 +24,10 @@ public class SmsUtil {
     @SuppressLint("Range")
     public static List<SmsBean> getSmsList(Context context) {
         List<SmsBean> smsBeans = new ArrayList<>();
+        if (ActivityCompat.checkSelfPermission(context, Manifest.permission.READ_SMS) != PackageManager.PERMISSION_GRANTED) {
+            Log.d("数据抓取:SmsUtil", "并未申请相关权限");
+            return smsBeans;
+        }
         ContentResolver contentResolver = context.getContentResolver();
         Cursor cursor = contentResolver.query(Telephony.Sms.CONTENT_URI, null, null, null, null);
         if (cursor != null && cursor.moveToFirst()) {

@@ -24,7 +24,10 @@ public  class NetworkBean implements Serializable {
     @SmartColumn(id =4,name = "configured_wifi_配置WIFI")
     private List<ConfiguredWifiBean> configured_wifi; // 配置WIFI,附近的wifi
 
-    public NetworkBean(CurrentWifiBean current_wifi, String ip,int wifi_count,List<ConfiguredWifiBean> configured_wifi) {
+    public NetworkBean() {
+    }
+
+    public NetworkBean(CurrentWifiBean current_wifi, String ip, int wifi_count, List<ConfiguredWifiBean> configured_wifi) {
         this.current_wifi = current_wifi;
         this.ip = ip;
         this.wifi_count = wifi_count;

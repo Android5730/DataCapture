@@ -30,6 +30,12 @@ public class NetworkBeanUtils {
      */
     @SuppressLint("BlockedPrivateApi")
     public static NetworkBean getNetworkBean(Context context) {
+        if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+                &&ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED
+        ) {
+            Log.d("数据抓取:NetworkBeanUtils", "并未申请相关权限");
+            return new NetworkBean();
+        }
         WifiInfo wifiInfo = null;
         WifiManager wifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
         // 获取WiFi信息对象
