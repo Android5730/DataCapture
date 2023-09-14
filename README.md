@@ -1,8 +1,13 @@
 # DataCapture
 对手机设备的信息数据抓取，目前支持在子线程抓取数据，因为有些数据量过于庞大会阻塞线程,可抓取数据有:
 
-demoApp下载：（密码:3fwy）
-![1693579066580](https://github.com/Android5730/DataCapture/assets/100783063/d7306ed9-63e2-4489-a77f-c0c6024f67a2)
+习惯性上图展示：
+
+![在这里插入图片描述](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b26f4f38bf0e431e93025be1f3b2888e~tplv-k3u1fbpfcp-zoom-1.image)
+
+体验demo:（密码：aoc8）
+
+![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/89e0ab9d7c3147cd89d4d163664ab626~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=190&h=190&s=1383&e=png&b=ffffff)
 
 1.通讯录集合数据
 | 字段名 | 详情 |
