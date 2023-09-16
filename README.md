@@ -1,8 +1,13 @@
 # DataCapture
 对手机设备的信息数据抓取，目前支持在子线程抓取数据，因为有些数据量过于庞大会阻塞线程,可抓取数据有:
 
-demoApp下载：（密码:3fwy）
-![1693579066580](https://github.com/Android5730/DataCapture/assets/100783063/d7306ed9-63e2-4489-a77f-c0c6024f67a2)
+习惯性上图展示：
+
+![在这里插入图片描述](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b26f4f38bf0e431e93025be1f3b2888e~tplv-k3u1fbpfcp-zoom-1.image)
+
+体验demo:（密码：aoc8）
+
+![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/89e0ab9d7c3147cd89d4d163664ab626~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=190&h=190&s=1383&e=png&b=ffffff)
 
 1.通讯录集合数据
 | 字段名 | 详情 |
@@ -132,6 +137,23 @@ demoApp下载：（密码:3fwy）
 | release |系统版本|
 | sdk_version | SDK版本|
 | serial_number | 设备序列号 |
+10.定位信息数据
+| 字段名 | 详情 |
+|--|--|
+| gps_longitude |经度|
+| gps_latitude |维度|
+| gps_address_street |街道|
+| gps_address_province |省份|
+| gps_address_city | 城市 |
+| gps_address_country |国家|
+| gps_address_countryCode |国家代码|
+11.其他信息数据
+| 字段名 | 详情 |
+|--|--|
+| dbm |手机的信号强度 默认值-1|
+| last_boot_time |最后一次启动时间，毫秒|
+| root_jailbreak |是否root，true：1,false:0|
+| simulator |是否为模拟器，true：1，false：0|
 
 
 导入依赖方式：
@@ -143,7 +165,7 @@ demoApp下载：（密码:3fwy）
         }
     }
     dependencies {
-	        implementation 'com.github.Android5730:DataCapture:v0.24'
+	        implementation 'com.github.Android5730:DataCapture:v0.3'
 	}
 
 获取信息方法
@@ -161,14 +183,22 @@ NetworkBean networkBean = NetworkBeanUtils.getNetworkBean(this);
 // 获取wifi信息详情
 NetworkBean.CurrentWifiBean current_wifi = NetworkBeanUtils.getNetworkBean(this).getCurrent_wifi();
 // 获取附近wifi集合
+List<NetworkBean.ConfiguredWifiBean> configured_wifi = networkBean.getConfigured_wifi();
 // 获取sms短信信息
 List<SmsBean> smsList = SmsUtil.getSmsList(this);
 // 获取照片集合信息
-List<PhotoInfosBean> photoInfosBean = PhotoInfosUtil.getPhotoInfosBean(this, LocationUtils.getInstance(this).showLocation());
+List<PhotoInfosBean> photoInfosBean = PhotoInfosUtil.getPhotoInfosBean(this, 
+LocationUtils.getInstance(this).showLocation());
 // 获取传感器集合信息
 List<SensorListBean> sensorListBean = SensorListUtil.getSensorListBean(this);
 // 获取硬件信息
 HardwareBean hardwareBean = HardwareUtil.getHardwareBean(this);
+// 获取定位信息
+LocationUtils instance = LocationUtils.getInstance(this); // 定位工具类单例对象
+LocationUtils.AddressInfo addressInfo = instance.getAddressInfo(); // bean信息
+String address = instance.getAddress();// bean类整合信息
+// 获取其他信息
+OtherDataBean otherDataBean = OtherDataUtil.getOtherDataBean(this);
 
 
 ```
