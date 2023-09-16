@@ -1,16 +1,23 @@
 package com.itaem.datacapture;
 
+import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.location.LocationManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import com.hjq.permissions.OnPermissionCallback;
 import com.hjq.permissions.Permission;
 import com.hjq.permissions.XXPermissions;
+import com.itaem.datacapture.Utils.LocationUtils;
 
 import java.util.List;
 
@@ -32,7 +39,33 @@ public class MainActivity extends AppCompatActivity {
         initAddressInfo();
         initOtherDataBean();
     }
-
+    // 判断是否开启定位服务
+    public  boolean isLocationServiceEnabled(Context context) {
+        LocationManager locationManager = (LocationManager) context.getSystemService(LOCATION_SERVICE);
+        boolean isGPSEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+        boolean isNetworkEnabled = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
+        return !isGPSEnabled&&!isNetworkEnabled;
+    }
+    // 检查是否开启GPS
+    private void checkGPS(){
+        if (!isLocationServiceEnabled(this)) {
+            if (checkPermission(this)){
+                LocationUtils.getInstance(this);
+            }else {
+                requestPermission(Permission.ACCESS_COARSE_LOCATION);
+            }
+        }else {
+            LocationUtils.getInstance(this);
+        }
+    }
+    // 检查是否申请权限
+    private boolean checkPermission(Context context){
+        if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            Log.d("数据抓取:LocationUtils", "并未申请相关权限");
+            return false;
+        }
+        return true;
+    }
     private void initOtherDataBean() {
         findViewById(R.id.btn_OtherDataBean).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.OtherDataBean_permission).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                requestPermission(Permission.ACCESS_COARSE_LOCATION);
+                checkGPS();
             }
         });
     }

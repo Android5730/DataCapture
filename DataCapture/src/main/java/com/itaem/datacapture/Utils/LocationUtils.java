@@ -145,6 +145,9 @@ public class LocationUtils {
         try {
             if (location != null) {
                 Geocoder gc = new Geocoder(context, Locale.getDefault());
+                // 返回一个地址数组，该数组试图描述给定纬度和经度周围的区域。
+                // 返回的地址应该根据提供给该类构造函数的区域设置进行本地化。
+                // 结果可以通过网络查找的方式获得，这个方法可能需要一些时间来返回，因此不应该在主线程上调用。
                 result = gc.getFromLocation(location.getLatitude(),
                         location.getLongitude(), 1);
                 for (int i = 0; i < result.size(); i++) {

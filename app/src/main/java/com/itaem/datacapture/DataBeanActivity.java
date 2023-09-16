@@ -100,12 +100,15 @@ public class DataBeanActivity extends AppCompatActivity {
                 list.add(addressInfo.getGps_address_country());
                 list.add(addressInfo.getGps_address_countryCode());
                 list.add(address);
+                break;
             case "OtherDataBean":
                 OtherDataBean otherDataBean = OtherDataUtil.getOtherDataBean(this);
                 list.add(otherDataBean.getDbm());
                 list.add(otherDataBean.getLast_boot_time());
                 list.add(String.valueOf(otherDataBean.getRoot_jailbreak()));
                 list.add(String.valueOf(otherDataBean.getSimulator()));
+                break;
+
         }
         beanAdapter.setData(list);
     }
