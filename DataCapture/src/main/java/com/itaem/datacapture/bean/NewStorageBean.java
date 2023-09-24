@@ -44,6 +44,7 @@ public  class NewStorageBean implements Serializable {
     //        private String purgableMemory; // 可清理内存 单位Byte）
     private String ram_total_size; // 总内存大小（ 单位Byte）
     private String ram_usable_size; // 内存可用大小 单位Byte）
+    private String ram_threshold;// 低内存阙值
 //                private String totalMemory; // 总内存大小（ 单位Byte）
 //                private String usedMemory; // 已用内存 单位Byte）
 //                private String wiredMemory; // 保留内存 单位Byte）
@@ -58,6 +59,53 @@ public  class NewStorageBean implements Serializable {
         return internal_storage_usable;
     }
 
+    public String getApp_free_memory() {
+        return app_free_memory;
+    }
+
+    public String getApp_max_memory() {
+        return app_max_memory;
+    }
+
+    public String getApp_total_memory() {
+        return app_total_memory;
+    }
+
+    public String getContain_sd() {
+        return contain_sd;
+    }
+
+    public String getExtra_sd() {
+        return extra_sd;
+    }
+
+    public String getMemory_card_free_size() {
+        return memory_card_free_size;
+    }
+
+    public String getMemory_card_size() {
+        return memory_card_size;
+    }
+
+    public String getMemory_card_size_use() {
+        return memory_card_size_use;
+    }
+
+    public String getMemory_card_usable_size() {
+        return memory_card_usable_size;
+    }
+
+    public String getRam_total_size() {
+        return ram_total_size;
+    }
+
+    public String getRam_usable_size() {
+        return ram_usable_size;
+    }
+
+    public String getRam_threshold() {
+        return ram_threshold;
+    }
 
     public void setApp_free_memory(String app_free_memory) {
         this.app_free_memory = app_free_memory;
@@ -110,6 +158,10 @@ public  class NewStorageBean implements Serializable {
 
     public void setMemory_card_usable_size(String memory_card_usable_size) {
         this.memory_card_usable_size = memory_card_usable_size;
+    }
+
+    public void setRam_threshold(String ram_threshold) {
+        this.ram_threshold = ram_threshold;
     }
 }
 

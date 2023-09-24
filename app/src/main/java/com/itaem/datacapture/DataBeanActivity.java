@@ -14,9 +14,11 @@ import com.itaem.datacapture.Utils.HardwareUtil;
 import com.itaem.datacapture.Utils.LocationUtils;
 import com.itaem.datacapture.Utils.NetworkBeanUtils;
 import com.itaem.datacapture.Utils.OtherDataUtil;
+import com.itaem.datacapture.Utils.SDCardUtils;
 import com.itaem.datacapture.bean.BatteryStatusBean;
 import com.itaem.datacapture.bean.HardwareBean;
 import com.itaem.datacapture.bean.NetworkBean;
+import com.itaem.datacapture.bean.NewStorageBean;
 import com.itaem.datacapture.bean.OtherDataBean;
 
 import java.util.ArrayList;
@@ -108,6 +110,23 @@ public class DataBeanActivity extends AppCompatActivity {
                 list.add(String.valueOf(otherDataBean.getRoot_jailbreak()));
                 list.add(String.valueOf(otherDataBean.getSimulator()));
                 break;
+            case "NewStorageBean":
+                NewStorageBean newStorageBean = SDCardUtils.getNewStorageBean(this);
+                list.add(newStorageBean.getApp_max_memory());
+                list.add(newStorageBean.getApp_total_memory());
+                list.add(newStorageBean.getApp_free_memory());
+                list.add(newStorageBean.getContain_sd());
+                list.add(newStorageBean.getExtra_sd());
+                list.add(newStorageBean.getInternal_storage_total());
+                list.add(newStorageBean.getInternal_storage_usable());
+                list.add(newStorageBean.getMemory_card_size());
+                list.add(newStorageBean.getMemory_card_size_use());
+                list.add(newStorageBean.getMemory_card_usable_size());
+                list.add(newStorageBean.getMemory_card_free_size());
+                list.add(newStorageBean.getRam_total_size());
+                list.add(newStorageBean.getRam_usable_size());
+                list.add(newStorageBean.getRam_threshold());
+                break;
 
         }
         beanAdapter.setData(list);
@@ -155,6 +174,8 @@ public class DataBeanActivity extends AppCompatActivity {
                 return "地址数据信息";
             case "OtherDataBean":
                 return "其他数据信息";
+            case "NewStorageBean":
+                return "内存数据信息";
 
         }
         return "错误数据跳转";

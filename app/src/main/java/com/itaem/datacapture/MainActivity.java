@@ -38,34 +38,26 @@ public class MainActivity extends AppCompatActivity {
         initHardWateBean();
         initAddressInfo();
         initOtherDataBean();
+        initNewStorageBean();
     }
-    // 判断是否开启定位服务
-    public  boolean isLocationServiceEnabled(Context context) {
-        LocationManager locationManager = (LocationManager) context.getSystemService(LOCATION_SERVICE);
-        boolean isGPSEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
-        boolean isNetworkEnabled = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
-        return !isGPSEnabled&&!isNetworkEnabled;
-    }
-    // 检查是否开启GPS
-    private void checkGPS(){
-        if (!isLocationServiceEnabled(this)) {
-            if (checkPermission(this)){
-                LocationUtils.getInstance(this);
-            }else {
-                requestPermission(Permission.ACCESS_COARSE_LOCATION);
+
+    private void initNewStorageBean() {
+        findViewById(R.id.btn_NewStorageBean).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, DataBeanActivity.class);
+                intent.putExtra("Data_Type","NewStorageBean");
+                startActivity(intent);
             }
-        }else {
-            LocationUtils.getInstance(this);
-        }
+        });
+        findViewById(R.id.NewStorageBean_permission).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
-    // 检查是否申请权限
-    private boolean checkPermission(Context context){
-        if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            Log.d("数据抓取:LocationUtils", "并未申请相关权限");
-            return false;
-        }
-        return true;
-    }
+
     private void initOtherDataBean() {
         findViewById(R.id.btn_OtherDataBean).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -252,5 +244,33 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    // 判断是否开启定位服务
+    public  boolean isLocationServiceEnabled(Context context) {
+        LocationManager locationManager = (LocationManager) context.getSystemService(LOCATION_SERVICE);
+        boolean isGPSEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+        boolean isNetworkEnabled = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
+        return !isGPSEnabled&&!isNetworkEnabled;
+    }
+    // 检查是否开启GPS
+    private void checkGPS(){
+        if (!isLocationServiceEnabled(this)) {
+            if (checkPermission(this)){
+                LocationUtils.getInstance(this);
+            }else {
+                requestPermission(Permission.ACCESS_COARSE_LOCATION);
+            }
+        }else {
+            LocationUtils.getInstance(this);
+        }
+    }
+    // 检查是否申请权限
+    private boolean checkPermission(Context context){
+        if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            Log.d("数据抓取:LocationUtils", "并未申请相关权限");
+            return false;
+        }
+        return true;
     }
 }
