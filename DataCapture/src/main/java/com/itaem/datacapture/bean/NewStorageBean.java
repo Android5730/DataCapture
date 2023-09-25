@@ -28,7 +28,8 @@ public  class NewStorageBean implements Serializable {
      */
 
     //        private String activeMemory; // 活动内存 单位Byte）
-    private String app_free_memory; // app可用内存大小 单位Byte）
+    private String app_free_memory; // app可用内存大小 单位Byte）asd
+
     private String app_max_memory; // app最大内存大小 单位Byte）
     private String app_total_memory;// app总内存大小 单位Byte）
     private String contain_sd; // 是否有内置的SD卡（0否，1是）

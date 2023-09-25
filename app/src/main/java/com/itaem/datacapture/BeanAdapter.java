@@ -87,20 +87,20 @@ public class BeanAdapter extends RecyclerView.Adapter<BeanAdapter.ViewHolder> {
                 OtherDataBeanArrays[3] = "是否为模拟器,true:1,false:0(simulator):";
                 break;
             case "NewStorageBean":
-                NewStorageBeanArrays[0] = "app最大内存大小 单位Byte）:";
-                NewStorageBeanArrays[1] = "app总内存大小 单位Byte）:";
-                NewStorageBeanArrays[2] = "app可用内存大小 单位Byte）:";
-                NewStorageBeanArrays[3] = "是否有内置的SD卡（0否，1是）:";
-                NewStorageBeanArrays[4] = "是否有外置的SD卡（0否，1是）:";
-                NewStorageBeanArrays[5] = "总存储大小 单位Byte）:";
-                NewStorageBeanArrays[6] = "可用存储大小 单位Byte）:";
-                NewStorageBeanArrays[7] = "内存卡大小 单位Byte）:";
-                NewStorageBeanArrays[8] = "内存卡已使用量 单位Byte）:";
-                NewStorageBeanArrays[9] = "内存卡可使用量 单位Byte）:";
-                NewStorageBeanArrays[10] = "内存卡剩余使用量 单位Byte）:";
-                NewStorageBeanArrays[11] = "总内存大小（ 单位Byte）:";
-                NewStorageBeanArrays[12] = "内存可用大小 单位Byte）:";
-                NewStorageBeanArrays[13] = "低内存阙值:";
+                NewStorageBeanArrays[0] = "app最大内存大小 app_max_memory）:";
+                NewStorageBeanArrays[1] = "app总内存大小 app_total_memory）:";
+                NewStorageBeanArrays[2] = "app可用内存大小 app_free_memory）:";
+                NewStorageBeanArrays[3] = "是否有内置的SD卡（0否，1是）contain_sd:";
+                NewStorageBeanArrays[4] = "是否有外置的SD卡（0否，1是）extra_sd:";
+                NewStorageBeanArrays[5] = "总存储大小 internal_storage_total）:";
+                NewStorageBeanArrays[6] = "可用存储大小 internal_storage_usable）:";
+                NewStorageBeanArrays[7] = "内存卡大小 memory_card_size）:";
+                NewStorageBeanArrays[8] = "内存卡已使用量 memory_card_size_use）:";
+                NewStorageBeanArrays[9] = "内存卡可使用量 memory_card_usable_size）:";
+                NewStorageBeanArrays[10] = "内存卡剩余使用量 memory_card_free_size）:";
+                NewStorageBeanArrays[11] = "总内存大小（ram_total_size）:";
+                NewStorageBeanArrays[12] = "内存可用大小 ram_usable_size）:";
+                NewStorageBeanArrays[13] = "低内存阙值 ram_threshold):";
                 break;
         }
     }

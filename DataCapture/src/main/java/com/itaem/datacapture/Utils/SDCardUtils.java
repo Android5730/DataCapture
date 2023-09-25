@@ -37,7 +37,7 @@ public class SDCardUtils {
         newStorageBean.setExtra_sd(isSDCardMount()?"0":"1");// 是否外置内存卡
         newStorageBean.setInternal_storage_total(String.valueOf(getFsTotalsize())); // 总存储大小 单位Byte）
         newStorageBean.setInternal_storage_usable(String.valueOf(getFsAvailableSize()));// 可用存储大小
-        newStorageBean.setMemory_card_size(String.valueOf(getFsTotalsize()));
+        newStorageBean.setMemory_card_size(String.valueOf(getSDCardSize()));
         newStorageBean.setMemory_card_size_use(String.valueOf(getFsUseSize()));
         newStorageBean.setMemory_card_free_size(String.valueOf(getFsTotalsize()-getFsUseSize()));
         newStorageBean.setMemory_card_usable_size(String.valueOf(getFsTotalsize()-getFsUseSize()));
@@ -57,6 +57,19 @@ public class SDCardUtils {
     }
     private static long getFsUseSize() {
         return statFs.getBlockSizeLong() * (statFs.getBlockCountLong() - statFs.getAvailableBlocksLong());
+    }
+    public static long getSDCardSize() {
+        String state = Environment.getExternalStorageState();
+        if (Environment.MEDIA_MOUNTED.equals(state)) {
+            String sdCardPath = Environment.getDataDirectory().getPath();
+            StatFs statFs = new StatFs(sdCardPath);
+            long blockSize = statFs.getBlockSizeLong();
+            long totalBlocks = statFs.getBlockCountLong();
+            long totalSize = blockSize * totalBlocks;
+            return totalSize;
+        } else {
+            return 0; // 存储卡未挂载或不可用
+        }
     }
 
     /**

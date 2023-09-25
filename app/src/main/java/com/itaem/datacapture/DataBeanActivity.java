@@ -1,6 +1,7 @@
 package com.itaem.datacapture;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -156,6 +157,7 @@ public class DataBeanActivity extends AppCompatActivity {
         RecyclerView recyclerView = findViewById(R.id.rv_bean);
         toolbar.setTitle(initToolbarTitle(type));
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.addItemDecoration(new DividerItemDecoration(this,1));
         beanAdapter = new BeanAdapter(type);
         recyclerView.setAdapter(beanAdapter);
     }
@@ -174,7 +176,7 @@ public class DataBeanActivity extends AppCompatActivity {
                 return "地址数据信息";
             case "OtherDataBean":
                 return "其他数据信息";
-            case "NewStorageBean":
+            case "NewStorageBean(单位byte)":
                 return "内存数据信息";
 
         }

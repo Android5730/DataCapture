@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.NewStorageBean_permission).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                requestPermission(Permission.READ_EXTERNAL_STORAGE);
             }
         });
     }

@@ -202,7 +202,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
-                android:text="内存信息——无需申请权限"/>
+                android:text="内存信息——申请权限"/>
         </LinearLayout>
 
 
