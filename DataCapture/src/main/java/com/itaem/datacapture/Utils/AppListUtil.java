@@ -2,9 +2,14 @@ package com.itaem.datacapture.Utils;// 2023/8/13
 
 
 import android.content.Context;
+import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
+import android.content.pm.Attribution;
+import android.content.pm.ConfigurationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.PermissionInfo;
+import android.content.pm.ServiceInfo;
 import android.os.Build;
 
 import com.itaem.datacapture.bean.AppListBean;

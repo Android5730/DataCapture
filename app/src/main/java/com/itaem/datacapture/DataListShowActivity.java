@@ -43,8 +43,18 @@ public class DataListShowActivity extends AppCompatActivity {
                 table.setData(addressBookBean);
                 break;
             case "AppList":
-                List<AppListBean> appListBean = AppListUtil.getAppListBean(this);
-                table.setData(appListBean);
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        List<AppListBean> appListBean = AppListUtil.getAppListBean(DataListShowActivity.this);
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                table.setData(appListBean);
+                            }
+                        });
+                    }
+                }).start();
                 break;
             case "CalendarList":
                 List<CalendarListBean> calendarListBean = CalendarListUtil.getCalendarListBean(this);
