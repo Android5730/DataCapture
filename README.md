@@ -209,7 +209,7 @@
         }
     }
     dependencies {
-	        implementation 'com.github.Android5730:DataCapture:v0.32'
+	        implementation 'com.github.Android5730:DataCapture:v0.4'
 	}
 
 获取信息方法
