@@ -202,7 +202,7 @@ public class DataBeanActivity extends AppCompatActivity {
                 return "地址数据信息";
             case "OtherDataBean":
                 return "其他数据信息";
-            case "NewStorageBean(单位byte)":
+            case "NewStorageBean(单位Byte)":
                 return "内存数据信息";
             case "GeneralDataBean":
                 return "通用数据信息";
