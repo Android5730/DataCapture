@@ -137,6 +137,7 @@
 | release |系统版本|
 | sdk_version | SDK版本|
 | serial_number | 设备序列号 |
+
 10.定位信息数据
 | 字段名 | 详情 |
 |--|--|
@@ -147,6 +148,7 @@
 | gps_address_city | 城市 |
 | gps_address_country |国家|
 | gps_address_countryCode |国家代码|
+
 11.其他信息数据
 | 字段名 | 详情 |
 |--|--|
@@ -154,6 +156,7 @@
 | last_boot_time |最后一次启动时间，毫秒|
 | root_jailbreak |是否root，true：1,false:0|
 | simulator |是否为模拟器，true：1，false：0|
+
 12.内存信息数据
 | 字段名 | 详情 |
 |--|--|
@@ -171,6 +174,7 @@
 | ram_total_size |总内存大小（ 单位Byte）|
 | ram_usable_size |内存可用大小 单位Byte）|
 | ram_threshold |低内存阙值|
+
 13.通用信息数据
 | 字段名 | 详情 |
 |--|--|
