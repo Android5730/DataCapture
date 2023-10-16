@@ -204,6 +204,22 @@
                 android:layout_marginStart="24dp"
                 android:text="内存信息——申请权限"/>
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/btn_GeneralDataBean"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="获取通用信息"/>
+            <Button
+                android:id="@+id/GeneralDataBean_permission"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:text="通用信息——无需申请权限"/>
+        </LinearLayout>
 
 
     </LinearLayout>

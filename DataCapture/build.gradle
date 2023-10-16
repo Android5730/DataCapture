@@ -28,6 +28,10 @@ android {
 
 dependencies {
     implementation 'com.github.huangyanbin:SmartTable:2.2.0'
+    // 添加google play服务 ----获取谷歌广告id
+    implementation 'com.google.android.gms:play-services-ads-identifier:18.0.1'
+
+
     implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation 'com.google.android.material:material:1.5.0'
     testImplementation 'junit:junit:4.13.2'

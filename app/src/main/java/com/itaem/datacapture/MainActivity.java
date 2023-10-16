@@ -39,6 +39,19 @@ public class MainActivity extends AppCompatActivity {
         initAddressInfo();
         initOtherDataBean();
         initNewStorageBean();
+        initGeneralDataBean();
+    }
+
+    private void initGeneralDataBean() {
+        findViewById(R.id.btn_GeneralDataBean).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, DataBeanActivity.class);
+                intent.putExtra("Data_Type","GeneralDataBean");
+                startActivity(intent);
+            }
+        });
+
     }
 
     private void initNewStorageBean() {

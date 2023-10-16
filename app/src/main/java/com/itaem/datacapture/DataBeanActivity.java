@@ -11,12 +11,14 @@ import android.view.View;
 
 import com.google.android.material.appbar.MaterialToolbar;
 import com.itaem.datacapture.Utils.BatteryStatusUtil;
+import com.itaem.datacapture.Utils.GeneralDataUtil;
 import com.itaem.datacapture.Utils.HardwareUtil;
 import com.itaem.datacapture.Utils.LocationUtils;
 import com.itaem.datacapture.Utils.NetworkBeanUtils;
 import com.itaem.datacapture.Utils.OtherDataUtil;
 import com.itaem.datacapture.Utils.SDCardUtils;
 import com.itaem.datacapture.bean.BatteryStatusBean;
+import com.itaem.datacapture.bean.GeneralDataBean;
 import com.itaem.datacapture.bean.HardwareBean;
 import com.itaem.datacapture.bean.NetworkBean;
 import com.itaem.datacapture.bean.NewStorageBean;
@@ -128,6 +130,30 @@ public class DataBeanActivity extends AppCompatActivity {
                 list.add(newStorageBean.getRam_usable_size());
                 list.add(newStorageBean.getRam_threshold());
                 break;
+            case "GeneralDataBean":
+                GeneralDataBean generalData = GeneralDataUtil.getGeneralData(this);
+                list.add(generalData.getAnd_id());
+                list.add(generalData.getCurrentSystemTime());
+                list.add(generalData.getElapsedRealtime());
+                list.add(generalData.getGaid());
+                list.add(generalData.getImei());
+                list.add(String.valueOf(generalData.isIs_usb_debug()));
+                list.add(String.valueOf(generalData.isIs_using_proxy_port()));
+                list.add(String.valueOf(generalData.isIs_using_vpn()));
+                list.add(generalData.getLanguage());
+                list.add(generalData.getLocale_display_language());
+                list.add(generalData.getLocale_iso_3_country());
+                list.add(generalData.getLocale_country());
+                list.add(generalData.getLocale_iso_3_language());
+                list.add(generalData.getMac());
+                list.add(generalData.getNetwork_operator_name());
+                list.add(generalData.getNetwork_type());
+                list.add(generalData.getPhone_number());
+                list.add(String.valueOf(generalData.getPhone_type()));
+                list.add(generalData.getTime_zone_id());
+                list.add(generalData.getUptimeMillis());
+                list.add(generalData.getUuid());
+                break;
 
         }
         beanAdapter.setData(list);
@@ -178,6 +204,8 @@ public class DataBeanActivity extends AppCompatActivity {
                 return "其他数据信息";
             case "NewStorageBean(单位byte)":
                 return "内存数据信息";
+            case "GeneralDataBean":
+                return "通用数据信息";
 
         }
         return "错误数据跳转";

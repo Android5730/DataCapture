@@ -20,6 +20,7 @@ public class BeanAdapter extends RecyclerView.Adapter<BeanAdapter.ViewHolder> {
     private final String[] AddressInfoArrays = new String[8];
     private final String[] OtherDataBeanArrays = new String[4];
     private final String[] NewStorageBeanArrays = new String[14];
+    private final String[] GeneralDataBeanArrays = new String[21];
     private final String type;
     private List<String> list;
 
@@ -102,6 +103,29 @@ public class BeanAdapter extends RecyclerView.Adapter<BeanAdapter.ViewHolder> {
                 NewStorageBeanArrays[12] = "内存可用大小 ram_usable_size）:";
                 NewStorageBeanArrays[13] = "低内存阙值 ram_threshold):";
                 break;
+            case "GeneralDataBean":
+                GeneralDataBeanArrays[0] = "android_id:";
+                GeneralDataBeanArrays[1] = "设备当前时间 currentSystemTime:";
+                GeneralDataBeanArrays[2] = "开机时间到现在的毫秒数（包括睡眠时间） elapsedRealtime:";
+                GeneralDataBeanArrays[3] = "google advertising id(google 广告 id)  gaid:";
+                GeneralDataBeanArrays[4] = "设备号  imei:";
+                GeneralDataBeanArrays[5] = "是否开启debug调试  is_usb_debug:";
+                GeneralDataBeanArrays[6] = "是否使用代理  is_using_proxy_port:";
+                GeneralDataBeanArrays[7] = "是否使用vpn  is_using_vpn:";
+                GeneralDataBeanArrays[8] = "语言  language:";
+                GeneralDataBeanArrays[9] = "此用户显示的语言环境语言的名称  locale_display_language:";
+                GeneralDataBeanArrays[10] = "此地区的国家/地区的缩写  locale_iso_3_country:";
+                GeneralDataBeanArrays[11] = "适合显示给用户的区域设置国家的名称  locale_country:";
+                GeneralDataBeanArrays[12] = "语言环境的三字母缩写  locale_iso_3_language:";
+                GeneralDataBeanArrays[13] = "mac地址   mac:";
+                GeneralDataBeanArrays[14] = "网络运营商名称   network_operator_name:";
+                GeneralDataBeanArrays[15] = "网络类型 2G、3G、4G、5G、wifi、other、none   network_type:";
+                GeneralDataBeanArrays[16] = "手机号  phone_number:";
+                GeneralDataBeanArrays[17] = "指示设备电话类型的常量。 这表示用于传输语音呼叫的无线电的类型  phone_type:";
+                GeneralDataBeanArrays[18] = "时区的ID  time_zone_id:";
+                GeneralDataBeanArrays[19] = "从开机到现在的毫秒数（不包括睡眠时间）  uptimeMillis:";
+                GeneralDataBeanArrays[20] = "唯一标识  uuid:";
+                break;
         }
     }
 
@@ -152,6 +176,9 @@ public class BeanAdapter extends RecyclerView.Adapter<BeanAdapter.ViewHolder> {
                 break;
             case "NewStorageBean":
                 holder.item_dec.setText(NewStorageBeanArrays[position] + list.get(position));
+                break;
+            case "GeneralDataBean":
+                holder.item_dec.setText(GeneralDataBeanArrays[position] + list.get(position));
                 break;
         }
 

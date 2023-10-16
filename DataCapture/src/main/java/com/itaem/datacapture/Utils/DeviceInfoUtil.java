@@ -3,6 +3,8 @@
 //import static android.content.Context.CONNECTIVITY_SERVICE;
 //import static android.content.Context.WIFI_SERVICE;
 //
+//import static com.itaem.datacapture.Utils.HardwareUtil.getHardwareBean;
+//
 //import android.content.ContentResolver;
 //import android.content.Context;
 //import android.content.pm.PackageInfo;
@@ -16,6 +18,9 @@
 //import android.net.wifi.WifiManager;
 //import android.os.Build;
 //import com.google.android.gms.ads.identifier.AdvertisingIdClient;
+//import com.itaem.datacapture.bean.DeviceInfoBean;
+//import com.itaem.datacapture.bean.HardwareBean;
+//
 //import android.os.Handler;
 //import android.os.Message;
 //import android.provider.MediaStore;
@@ -55,10 +60,10 @@
 //                //       String developmentRegion = "java";// 开发语言
 //                String device_info = Build.MODEL; // 设备信息
 //                String os_type = "android"; // 设备系统类型
-//                String os_version = hardwareData.release; // 设备系统版本
+//                String os_version = Build.VERSION.RELEASE; // 设备系统版本
 //                String ip = getIpAddressString(); // ip
 //
-//                ReqBean.ExtInfoReqBean.DeviceInfoBean.BatteryStatusBean batteryState = getBatteryState(context);
+//                DeviceInfoBean.BatteryStatusBean batteryState = getBatteryState(context);
 //                String gps_longitude = String.valueOf(LocationUtils.getInstance(context).getLongitude()); // 经度
 //                String gps_latitude = String.valueOf(LocationUtils.getInstance(context).getLatitude()); // 维度
 //                String gps_address = LocationUtils.getAddress(context, location);// GPS地址
@@ -90,9 +95,9 @@
 //                }
 //
 //                //    StorageData storageData = StorageQueryUtil.queryWithStorageManager(new StorageData());
-//                ReqBean.ExtInfoReqBean.DeviceInfoBean.HardwareBean hardwareBean = getHardwareBean(context);
+//                HardwareBean hardwareBean = getHardwareBean(context);
 //                String resolution = hardwareBean.getDevice_width() + "x" + hardwareBean.getDevice_height();
-//                ReqBean.ExtInfoReqBean.DeviceInfoBean deviceInfoBean = new ReqBean.ExtInfoReqBean.DeviceInfoBean(
+//                DeviceInfoBean deviceInfoBean = new DeviceInfoBean(
 //                        address_info, "", mediaCount[1], batteryState.getBattery_pct(), batteryState, hardwareData.brand, String.valueOf(versionCode),
 //                        Constant.version, create_time, device_id, device_info, getGeneralData(context),
 //                        gps_address, gps_adid, gps_latitude, gps_longitude, hardwareBean, "", "", pictureCount[1], getIMEI(context), ip, isRooted() ? 1 : 0, is_simulator, String.valueOf(last_login_time),
@@ -101,10 +106,7 @@
 //                        videoCount[1], Integer.parseInt(wifiName[1]), getIMSI(context)
 //                );
 //                ReqBean reqBean = new ReqBean(new ReqBean.ExtInfoReqBean(deviceInfoBean, null, null, null, null, null, null,null));
-//                Message message = new Message();
-//                message.arg1 = 6;
-//                message.obj = reqBean;
-//                handler.sendMessage(message);
+//
 //            }
 //        }).start();
 //    }
@@ -272,28 +274,7 @@
 //        return isRooted;
 //    }
 //
-//    /**
-//     * 获取mac地址
-//     */
-//    private String getMAC(Context context) {
-//        String macAddress = "";
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-//            try {
-//                // wifi已经连接，这里可以判断一下
-//                InputStream inputStream = new FileInputStream("/sys/class/net/wlan0/address");
-//                InputStreamReader reader = new InputStreamReader(inputStream);
-//                BufferedReader br = new BufferedReader(reader);
-//                macAddress = br.readLine();
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
-//        } else {
-///*            WifiManager wifiManager = (WifiManager) context.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
-//            WifiInfo wifiInfo = wifiManager.getConnectionInfo();
-//            macAddress = wifiInfo.getMacAddress();*/
-//        }
-//        return macAddress;
-//    }
+
 //    /**
 //     * 获取google广告id
 //     */

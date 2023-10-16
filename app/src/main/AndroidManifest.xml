@@ -9,6 +9,8 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- SMS信息,需动态请求 -->
     <uses-permission android:name="android.permission.READ_SMS" /> <!-- photo信息，需动态请求 -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+
     <!--为了获取非系统的应用程序-->
     <queries>
         <intent>
