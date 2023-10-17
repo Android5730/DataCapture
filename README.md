@@ -137,6 +137,7 @@
 | release |系统版本|
 | sdk_version | SDK版本|
 | serial_number | 设备序列号 |
+
 10.定位信息数据
 | 字段名 | 详情 |
 |--|--|
@@ -147,6 +148,7 @@
 | gps_address_city | 城市 |
 | gps_address_country |国家|
 | gps_address_countryCode |国家代码|
+
 11.其他信息数据
 | 字段名 | 详情 |
 |--|--|
@@ -155,6 +157,48 @@
 | root_jailbreak |是否root，true：1,false:0|
 | simulator |是否为模拟器，true：1，false：0|
 
+12.内存信息数据
+| 字段名 | 详情 |
+|--|--|
+| app_free_memory | app可用内存大小 单位Byte）|
+| app_max_memory |app最大内存大小 单位Byte）|
+| app_total_memory |app总内存大小 单位Byte）|
+| contain_sd |是否有内置的SD卡（0否，1是）|
+| extra_sd | 是否有外置的SD卡（0否，1是）|
+| internal_storage_total | 总存储大小 单位Byte）|
+| internal_storage_usable |可用存储大小 单位Byte）|
+| memory_card_free_size |内存卡剩余使用量 单位Byte）|
+| memory_card_size |内存卡大小 单位Byte）|
+| memory_card_size_use | 内存卡已使用量 单位Byte）|
+| memory_card_usable_size | 内存卡可使用量 单位Byte）|
+| ram_total_size |总内存大小（ 单位Byte）|
+| ram_usable_size |内存可用大小 单位Byte）|
+| ram_threshold |低内存阙值|
+
+13.通用信息数据
+| 字段名 | 详情 |
+|--|--|
+| and_id | android_id|
+| currentSystemTime |设备当前时间|
+| elapsedRealtime |开机时间到现在的毫秒数（包括睡眠时间）|
+| gaid | google advertising id(google 广告 id)|
+| imei | 设备号|
+| is_usb_debug | 是否开启debug调试|
+| is_using_proxy_port |是否使用代理|
+| is_using_vpn |是否使用vpn|
+| language |语言|
+| locale_display_language | 此用户显示的语言环境语言的名称|
+| locale_iso_3_country | 此地区的国家/地区的缩写|
+| locale_country |此地区的国家|
+| locale_iso_3_language |语言环境的三字母缩写|
+| mac |mac 地址|
+| network_operator_name |网络运营商名称|
+| network_type |网络类型 2G、3G、4G、5G、wifi、other、none|
+| phone_number |手机号|
+| phone_type |  指示设备电话类型的常量。 这表示用于传输语音呼叫的无线电的类型|
+| time_zone_id | 时区的 ID|
+| uptimeMillis | 从开机到现在的毫秒数（不包括睡眠时间）|
+| uuid |唯一标识|
 
 导入依赖方式：
 
@@ -165,7 +209,7 @@
         }
     }
     dependencies {
-	        implementation 'com.github.Android5730:DataCapture:v0.32'
+	        implementation 'com.github.Android5730:DataCapture:v0.4'
 	}
 
 获取信息方法
@@ -199,6 +243,12 @@ LocationUtils.AddressInfo addressInfo = instance.getAddressInfo(); // bean信息
 String address = instance.getAddress();// bean类整合信息
 // 获取其他信息
 OtherDataBean otherDataBean = OtherDataUtil.getOtherDataBean(this);
+// 获取内存信息
+NewStorageBean newStorageBean = SDCardUtils.getNewStorageBean(this);
+// 获取通用信息
+GeneralDataBean generalData = GeneralDataUtil.getGeneralData(this);
+
+
 
 
 ```
