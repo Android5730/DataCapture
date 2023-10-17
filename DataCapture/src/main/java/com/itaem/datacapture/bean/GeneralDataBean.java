@@ -56,9 +56,10 @@ public  class GeneralDataBean implements Serializable {
     //           private String serviceCurrentRadioAccessTechnology; // 运营商无线接入技术
     private String time_zone_id; // 时区的 ID
     private String uptimeMillis; // 从开机到现在的毫秒数（不包括睡眠时间）
+    private String threadTimeMillis;// 当前线程中运行的毫秒数，在主线程可以说是当前应用程序运行时间
     private String uuid; // 唯一标识 UUID.randomUUID().toString().toUpperCase()
 
-    public GeneralDataBean( String and_id, String currentSystemTime, String elapsedRealtime, String gaid, String imei, boolean is_usb_debug, boolean is_using_proxy_port, boolean is_using_vpn, String language, String locale_display_language, String locale_iso_3_country,String locale_country, String locale_iso_3_language, String mac, String network_operator_name, String network_type,  String phone_number, int phone_type, String time_zone_id, String uptimeMillis, String uuid) {
+    public GeneralDataBean( String and_id, String currentSystemTime, String elapsedRealtime, String gaid, String imei, boolean is_usb_debug, boolean is_using_proxy_port, boolean is_using_vpn, String language, String locale_display_language, String locale_iso_3_country,String locale_country, String locale_iso_3_language, String mac, String network_operator_name, String network_type,  String phone_number, int phone_type, String time_zone_id, String uptimeMillis,String threadTimeMillis, String uuid) {
         this.and_id = and_id;
         this.currentSystemTime = currentSystemTime;
         this.elapsedRealtime = elapsedRealtime;
@@ -80,6 +81,7 @@ public  class GeneralDataBean implements Serializable {
         //           this.serviceCurrentRadioAccessTechnology = serviceCurrentRadioAccessTechnology;
         this.time_zone_id = time_zone_id;
         this.uptimeMillis = uptimeMillis;
+        this.threadTimeMillis = threadTimeMillis;
         this.uuid = uuid;
     }
     public String getAnd_id() {
@@ -143,6 +145,9 @@ public  class GeneralDataBean implements Serializable {
     }
 
 
+    public String getThreadTimeMillis() {
+        return threadTimeMillis;
+    }
 
     public String getPhone_number() {
         return phone_number;

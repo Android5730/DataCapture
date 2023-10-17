@@ -152,6 +152,7 @@ public class DataBeanActivity extends AppCompatActivity {
                 list.add(String.valueOf(generalData.getPhone_type()));
                 list.add(generalData.getTime_zone_id());
                 list.add(generalData.getUptimeMillis());
+                list.add(generalData.getThreadTimeMillis());
                 list.add(generalData.getUuid());
                 break;
 

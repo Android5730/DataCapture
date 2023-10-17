@@ -73,12 +73,13 @@ public class GeneralDataUtil {
         TimeZone timeZone = TimeZone.getDefault ();
         String time_zone_id = timeZone.getID(); // 时区的 ID
         String uptimeMillis = String.valueOf(SystemClock.uptimeMillis()); // 从开机到现在的毫秒数（不包括睡眠时间）
+        String threadTimeMillis = String.valueOf(SystemClock.currentThreadTimeMillis()); // 当前线程中运行的毫秒数，在主线程可以说是当前应用程序运行时间
         String uuid = UUID.randomUUID().toString().toUpperCase(); // 唯一标识
         // 传感器信息
         return new GeneralDataBean(and_id, currentSystemTime, elapsedRealtime,
                 gaid, imei, is_usb_debug, is_using_proxy_port, is_using_vpn, language, locale_display_language, locale_iso_3_country,displayCountry,
                 locale_iso_3_language, mac, network_operator_name, network_type,
-                phone_number, phoneType, time_zone_id, uptimeMillis, uuid);
+                phone_number, phoneType, time_zone_id, uptimeMillis,threadTimeMillis, uuid);
     }
 
     @SuppressLint("HardwareIds")

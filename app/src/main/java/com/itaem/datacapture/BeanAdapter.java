@@ -20,7 +20,7 @@ public class BeanAdapter extends RecyclerView.Adapter<BeanAdapter.ViewHolder> {
     private final String[] AddressInfoArrays = new String[8];
     private final String[] OtherDataBeanArrays = new String[4];
     private final String[] NewStorageBeanArrays = new String[14];
-    private final String[] GeneralDataBeanArrays = new String[21];
+    private final String[] GeneralDataBeanArrays = new String[22];
     private final String type;
     private List<String> list;
 
@@ -124,7 +124,8 @@ public class BeanAdapter extends RecyclerView.Adapter<BeanAdapter.ViewHolder> {
                 GeneralDataBeanArrays[17] = "指示设备电话类型的常量。 这表示用于传输语音呼叫的无线电的类型  phone_type:";
                 GeneralDataBeanArrays[18] = "时区的ID  time_zone_id:";
                 GeneralDataBeanArrays[19] = "从开机到现在的毫秒数（不包括睡眠时间）  uptimeMillis:";
-                GeneralDataBeanArrays[20] = "唯一标识  uuid:";
+                GeneralDataBeanArrays[20] = "当前线程中运行的毫秒数，在主线程可以说是当前应用程序运行时间  threadTimeMillis:";
+                GeneralDataBeanArrays[21] = "唯一标识  uuid:";
                 break;
         }
     }
