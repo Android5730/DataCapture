@@ -1,6 +1,10 @@
 package com.itaem.datacapture;// 2023/9/1
 
 import android.annotation.SuppressLint;
+import android.graphics.Color;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +12,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.skydoves.colorpickerview.ColorEnvelope;
 
 import java.util.List;
 
@@ -22,6 +28,7 @@ public class BeanAdapter extends RecyclerView.Adapter<BeanAdapter.ViewHolder> {
     private final String[] NewStorageBeanArrays = new String[14];
     private final String[] GeneralDataBeanArrays = new String[22];
     private final String type;
+    private ForegroundColorSpan span;
     private List<String> list;
     private int viewType;
     public BeanAdapter(String type) {
@@ -36,7 +43,11 @@ public class BeanAdapter extends RecyclerView.Adapter<BeanAdapter.ViewHolder> {
 
     public void setData(List<String> list) {
         this.list = list;
+        span = new ForegroundColorSpan(Color.parseColor("#000000"));
         notifyDataSetChanged();
+    }
+    public void setColor(ColorEnvelope colorEnvelope){
+        span = new ForegroundColorSpan(colorEnvelope.getColor());
     }
 
     private void initArray(String type) {
@@ -165,28 +176,44 @@ public class BeanAdapter extends RecyclerView.Adapter<BeanAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull BeanAdapter.ViewHolder holder, int position) {
         switch (type) {
             case "hardwareBean":
-                holder.item_dec.setText(hardwareArrays[position] + list.get(position));
+                SpannableString spannableStringHard = new SpannableString(hardwareArrays[position] + list.get(position));
+                spannableStringHard.setSpan(span,hardwareArrays[position].length(),spannableStringHard.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                holder.item_dec.setText(spannableStringHard);
                 break;
             case "NetworkBean":
-                holder.item_dec.setText(NetworkArrays[position] + list.get(position));
+                SpannableString spannableStringNet = new SpannableString(NetworkArrays[position] + list.get(position));
+                spannableStringNet.setSpan(span,NetworkArrays[position].length(),spannableStringNet.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                holder.item_dec.setText(spannableStringNet);
                 break;
             case "BatteryStatusBean":
-                holder.item_dec.setText(BatteryStatusArrays[position] + list.get(position));
+                SpannableString spannableStringNetBattery = new SpannableString(BatteryStatusArrays[position] + list.get(position));
+                spannableStringNetBattery.setSpan(span,BatteryStatusArrays[position].length(),spannableStringNetBattery.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                holder.item_dec.setText(spannableStringNetBattery);
                 break;
             case "CurrentWifiBean":
-                holder.item_dec.setText(NetworkCurrentWifiBeanArrays[position] + list.get(position));
+                SpannableString spanCurrentWifi = new SpannableString(NetworkCurrentWifiBeanArrays[position] + list.get(position));
+                spanCurrentWifi.setSpan(span,NetworkCurrentWifiBeanArrays[position].length(),spanCurrentWifi.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                holder.item_dec.setText(spanCurrentWifi);
                 break;
             case "AddressInfo":
-                holder.item_dec.setText(AddressInfoArrays[position] + list.get(position));
+                SpannableString spanAddressInfo = new SpannableString(AddressInfoArrays[position] + list.get(position));
+                spanAddressInfo.setSpan(span,AddressInfoArrays[position].length(),spanAddressInfo.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                holder.item_dec.setText(spanAddressInfo);
                 break;
             case "OtherDataBean":
-                holder.item_dec.setText(OtherDataBeanArrays[position] + list.get(position));
+                SpannableString spanOtherDataBean = new SpannableString(OtherDataBeanArrays[position] + list.get(position));
+                spanOtherDataBean.setSpan(span,OtherDataBeanArrays[position].length(),spanOtherDataBean.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                holder.item_dec.setText(spanOtherDataBean);
                 break;
             case "NewStorageBean":
-                holder.item_dec.setText(NewStorageBeanArrays[position] + list.get(position));
+                SpannableString spanNewStorageBean = new SpannableString(NewStorageBeanArrays[position] + list.get(position));
+                spanNewStorageBean.setSpan(span,NewStorageBeanArrays[position].length(),spanNewStorageBean.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                holder.item_dec.setText(spanNewStorageBean);
                 break;
             case "GeneralDataBean":
-                holder.item_dec.setText(GeneralDataBeanArrays[position] + list.get(position));
+                SpannableString spanGeneralDataBean = new SpannableString(GeneralDataBeanArrays[position] + list.get(position));
+                spanGeneralDataBean.setSpan(span,GeneralDataBeanArrays[position].length(),spanGeneralDataBean.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                holder.item_dec.setText(spanGeneralDataBean);
                 break;
         }
 

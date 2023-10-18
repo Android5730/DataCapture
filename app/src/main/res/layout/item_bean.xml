@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         android:text="字段名称:数据多少"
         android:textSize="16dp"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 

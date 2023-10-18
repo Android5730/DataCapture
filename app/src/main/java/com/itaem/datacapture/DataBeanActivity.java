@@ -1,5 +1,6 @@
 package com.itaem.datacapture;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -8,6 +9,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -28,6 +30,11 @@ import com.itaem.datacapture.bean.HardwareBean;
 import com.itaem.datacapture.bean.NetworkBean;
 import com.itaem.datacapture.bean.NewStorageBean;
 import com.itaem.datacapture.bean.OtherDataBean;
+import com.skydoves.colorpickerview.ActionMode;
+import com.skydoves.colorpickerview.ColorEnvelope;
+import com.skydoves.colorpickerview.ColorPickerDialog;
+import com.skydoves.colorpickerview.ColorPickerView;
+import com.skydoves.colorpickerview.listeners.ColorEnvelopeListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -197,7 +204,29 @@ public class DataBeanActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.menu_color:
-                Toast.makeText(this, "切换布局", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "颜色选择器", Toast.LENGTH_SHORT).show();
+                new ColorPickerDialog.Builder(this)
+                        .setTitle("ColorPicker Dialog")
+                        .setPreferenceName("MyColorPickerDialog")
+                        .setPositiveButton(getString(R.string.confirm),
+                                new ColorEnvelopeListener() {
+                                    @Override
+                                    public void onColorSelected(ColorEnvelope envelope, boolean fromUser) {
+                                        beanAdapter.setColor(envelope);
+                                        beanAdapter.notifyDataSetChanged();
+                                    }
+                                })
+                        .setNegativeButton(getString(R.string.cancel),
+                                new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        dialogInterface.dismiss();
+                                    }
+                                })
+                        .attachAlphaSlideBar(true) // the default value is true.
+                        .attachBrightnessSlideBar(true)  // the default value is true.
+                        .setBottomSpace(12) // set a bottom space between the last slidebar and buttons.
+                        .show();
                 break;
             case R.id.menu_changeLayout:
                 DefaultItemAnimator itemAnimator = new DefaultItemAnimator();
