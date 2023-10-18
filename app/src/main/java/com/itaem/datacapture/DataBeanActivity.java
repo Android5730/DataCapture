@@ -1,13 +1,18 @@
 package com.itaem.datacapture;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.DividerItemDecoration;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.appbar.MaterialToolbar;
 import com.itaem.datacapture.Utils.BatteryStatusUtil;
@@ -30,7 +35,9 @@ import java.util.List;
 public class DataBeanActivity extends AppCompatActivity {
     private String type;
     private BeanAdapter beanAdapter;
+    private MaterialToolbar toolbar;
     private List<Integer> canClickPosition;
+    private RecyclerView recyclerView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -179,9 +186,41 @@ public class DataBeanActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_data,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.menu_color:
+                Toast.makeText(this, "切换布局", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.menu_changeLayout:
+                DefaultItemAnimator itemAnimator = new DefaultItemAnimator();
+                itemAnimator.setChangeDuration(1000); // 设置布局切换时的动画持续时间，单位为毫秒
+                recyclerView.setItemAnimator(itemAnimator);
+                if (recyclerView.getLayoutManager() instanceof GridLayoutManager){
+                    recyclerView.addItemDecoration(new DividerItemDecoration(this,1));
+                    recyclerView.setLayoutManager(new LinearLayoutManager(this));
+                }else {
+                    Toast.makeText(this, "切换布局", Toast.LENGTH_SHORT).show();
+                    recyclerView.setLayoutManager(new GridLayoutManager(DataBeanActivity.this,2));
+                    recyclerView.addItemDecoration(new DividerItemDecoration(this,1));
+                    recyclerView.addItemDecoration(new DividerItemDecoration(this,0));
+                }
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     private void initView() {
-        MaterialToolbar toolbar = findViewById(R.id.toolbar_bean);
-        RecyclerView recyclerView = findViewById(R.id.rv_bean);
+        toolbar = findViewById(R.id.toolbar_bean);
+        setSupportActionBar(toolbar);
+        recyclerView= findViewById(R.id.rv_bean);
         toolbar.setTitle(initToolbarTitle(type));
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.addItemDecoration(new DividerItemDecoration(this,1));

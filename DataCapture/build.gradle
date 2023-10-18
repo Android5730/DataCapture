@@ -30,7 +30,11 @@ dependencies {
     implementation 'com.github.huangyanbin:SmartTable:2.2.0'
     // 添加google play服务 ----获取谷歌广告id
     implementation 'com.google.android.gms:play-services-ads-identifier:18.0.1'
-
+    // Google Play Referrer API
+    implementation 'com.android.installreferrer:installreferrer:2.2'
+    // Play 服务身份验证组件
+    implementation 'com.google.android.gms:play-services-auth:20.1.0'
+    implementation 'com.google.android.gms:play-services-auth-api-phone:18.0.1'
 
     implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation 'com.google.android.material:material:1.5.0'
