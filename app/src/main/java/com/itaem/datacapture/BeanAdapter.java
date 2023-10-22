@@ -166,7 +166,6 @@ public class BeanAdapter extends RecyclerView.Adapter<BeanAdapter.ViewHolder> {
     @NonNull
     @Override
     public BeanAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
         return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_bean, parent,false));
 
     }

@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <!-- 定位权限，需动态请求 -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!--精细地址，可以获取更多地理信息，甚至连物理信息mac也能获取-->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <!-- 通讯录，需动态请求 -->
     <uses-permission android:name="android.permission.READ_CONTACTS" />

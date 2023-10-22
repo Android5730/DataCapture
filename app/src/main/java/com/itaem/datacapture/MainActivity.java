@@ -51,7 +51,12 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+        findViewById(R.id.GeneralDataBean_permission).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                requestPermission(Permission.ACCESS_FINE_LOCATION,Permission.READ_PHONE_STATE);
+            }
+        });
     }
 
     private void initNewStorageBean() {
