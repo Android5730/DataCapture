@@ -1,5 +1,7 @@
 package com.itaem.datacapture.bean;// 2023/8/13
 
+import android.graphics.drawable.Drawable;
+
 import com.bin.david.form.annotation.SmartColumn;
 import com.bin.david.form.annotation.SmartTable;
 
@@ -34,7 +36,9 @@ public  class AppListBean implements Serializable {
     private String up_time; // 更新时间 （毫秒）
     @SmartColumn(id =8,name = "version_code_版本号")
     private String version_code; // 版本号
-    public AppListBean(String app_name, String app_type, String app_version, String in_time, int obtain_time, String package_name, String up_time, String version_code) {
+    @SmartColumn(id =9,name = "app_icon_icon")
+    private Drawable app_icon; // 版本号
+    public AppListBean(String app_name, String app_type, String app_version, String in_time, int obtain_time, String package_name, String up_time, String version_code,Drawable app_icon) {
         this.app_name = app_name;
         this.app_type = app_type;
         this.app_version = app_version;
@@ -43,6 +47,7 @@ public  class AppListBean implements Serializable {
         this.package_name = package_name;
         this.up_time = up_time;
         this.version_code = version_code;
+        this.app_icon = app_icon;
     }
 
     public String getApp_name() {
@@ -109,4 +114,11 @@ public  class AppListBean implements Serializable {
         this.version_code = version_code;
     }
 
+    public Drawable getApp_icon() {
+        return app_icon;
+    }
+
+    public void setApp_icon(Drawable app_icon) {
+        this.app_icon = app_icon;
+    }
 }

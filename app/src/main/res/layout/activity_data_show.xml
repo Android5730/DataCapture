@@ -4,7 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DataShowActivity">
+    tools:context=".DataListShowActivity">
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:menu="@menu/menu_data"
+        app:layout_constraintTop_toTopOf="parent"/>
     <com.bin.david.form.core.SmartTable
         android:id="@+id/table"
         android:layout_width="match_parent"
