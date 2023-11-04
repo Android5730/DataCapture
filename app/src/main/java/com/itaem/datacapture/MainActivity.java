@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -18,6 +20,8 @@ import com.hjq.permissions.OnPermissionCallback;
 import com.hjq.permissions.Permission;
 import com.hjq.permissions.XXPermissions;
 import com.itaem.datacapture.Utils.LocationUtils;
+import com.itaem.datacapture.beanShow.DataBeanActivity;
+import com.itaem.datacapture.listShow.DataListShowActivity;
 
 import java.util.List;
 

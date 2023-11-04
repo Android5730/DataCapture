@@ -1,6 +1,5 @@
-package com.itaem.datacapture;// 2023/9/1
+package com.itaem.datacapture.beanShow;// 2023/9/1
 
-import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.text.SpannableString;
 import android.text.Spanned;
@@ -13,6 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.itaem.datacapture.R;
 import com.skydoves.colorpickerview.ColorEnvelope;
 
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.itaem.datacapture;
+package com.itaem.datacapture.beanShow;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -9,7 +9,6 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -17,6 +16,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.appbar.MaterialToolbar;
+import com.itaem.datacapture.listShow.DataListShowActivity;
+import com.itaem.datacapture.R;
 import com.itaem.datacapture.Utils.BatteryStatusUtil;
 import com.itaem.datacapture.Utils.GeneralDataUtil;
 import com.itaem.datacapture.Utils.HardwareUtil;
@@ -30,10 +31,8 @@ import com.itaem.datacapture.bean.HardwareBean;
 import com.itaem.datacapture.bean.NetworkBean;
 import com.itaem.datacapture.bean.NewStorageBean;
 import com.itaem.datacapture.bean.OtherDataBean;
-import com.skydoves.colorpickerview.ActionMode;
 import com.skydoves.colorpickerview.ColorEnvelope;
 import com.skydoves.colorpickerview.ColorPickerDialog;
-import com.skydoves.colorpickerview.ColorPickerView;
 import com.skydoves.colorpickerview.listeners.ColorEnvelopeListener;
 
 import java.util.ArrayList;

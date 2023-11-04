@@ -4,16 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DataListShowActivity">
+    tools:context=".listShow.DataListShowActivity">
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:menu="@menu/menu_data"
+        app:menu="@menu/menu_list_data"
         app:layout_constraintTop_toTopOf="parent"/>
     <com.bin.david.form.core.SmartTable
         android:id="@+id/table"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_list"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_list"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

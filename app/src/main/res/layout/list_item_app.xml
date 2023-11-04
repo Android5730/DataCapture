@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView
+        android:id="@+id/item_app_icon"
+        android:layout_width="@dimen/cpt_36dp"
+        android:layout_height="@dimen/cpt_36dp"
+        android:layout_margin="@dimen/cpt_8dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+    <TextView
+        android:id="@+id/item_app_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="美团"
+        android:textSize="@dimen/cpt_14sp"
+        android:textColor="#666666"
+        app:layout_constraintTop_toBottomOf="@id/item_app_icon"
+        app:layout_constraintStart_toStartOf="@id/item_app_icon"
+        />
+    <TextView
+        android:id="@+id/item_app_pageName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="包名:"
+        android:textSize="@dimen/cpt_12sp"
+        android:layout_marginEnd="@dimen/cpt_8dp"
+        app:layout_constraintTop_toTopOf="@id/item_app_icon"
+        app:layout_constraintEnd_toEndOf="parent"/>
+    <TextView
+        android:id="@+id/item_app_versionCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="版本号:"
+        android:textSize="@dimen/cpt_12sp"
+        android:layout_marginEnd="@dimen/cpt_8dp"
+        app:layout_constraintBottom_toBottomOf="@id/item_app_name"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

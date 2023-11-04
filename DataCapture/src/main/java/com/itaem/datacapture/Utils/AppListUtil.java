@@ -34,6 +34,7 @@ public class AppListUtil {
                 // 获取app名称
                 String name = packageInfo.applicationInfo.loadLabel(packageManager).toString();
                 Drawable drawable = applicationInfo.loadIcon(packageManager);
+//                Drawable drawable = context.getPackageManager().getApplicationIcon(packageInfo.packageName);
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
                     appListBeans.add(new AppListBean(name,
                             // 判断是否系统应用

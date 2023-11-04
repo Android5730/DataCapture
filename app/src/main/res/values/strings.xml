@@ -5,4 +5,5 @@
     <string name="menu_changeLayout">切换布局</string>
     <string name="confirm">提交</string>
     <string name="cancel">取消</string>
+    <string name="menu_list_change_layout">切换列表布局</string>
 </resources>

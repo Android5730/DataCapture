@@ -32,7 +32,7 @@
         android:theme="@style/Theme.DataCapture"
         tools:targetApi="31">
         <activity
-            android:name=".DataBeanActivity"
+            android:name=".beanShow.DataBeanActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -43,15 +43,9 @@
             android:name="ScopedStorage"
             android:value="true" />
 
+
         <activity
-            android:name=".BeanActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".DataListShowActivity"
+            android:name=".listShow.DataListShowActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
