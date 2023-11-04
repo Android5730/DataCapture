@@ -1,5 +1,7 @@
 package com.itaem.datacapture.listShow;// 2023/11/2
 
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,6 +32,8 @@ public class DataListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     private final static String TYPE_SMSBean = "SMSBean";
     private final static String TYPE_PhotoBean = "PhotoBean";
     private final static String TYPE_SensorBean = "SensorBean";
+
+    // 通讯录的viewHolder
     public class AddressBookViewHolder extends RecyclerView.ViewHolder {
         TextView item_address_name;
         TextView item_address_number;
@@ -46,7 +50,11 @@ public class DataListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             item_iv_dial.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(itemView.getContext(), "测试", Toast.LENGTH_SHORT).show();
+                    // 夜神模拟器没有该功能
+                    Intent intent = new Intent(Intent.ACTION_DIAL);
+                    Uri data = Uri.parse("tel:" + item_address_number.getText().toString());
+                    intent.setData(data);
+                    itemView.getContext().startActivity(intent);
                 }
             });
 

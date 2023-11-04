@@ -2,6 +2,7 @@ package com.itaem.datacapture.listShow;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -61,9 +62,9 @@ public class DataListShowActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar_list);
         table = findViewById(R.id.table);
         setSupportActionBar(toolbar);
-
         recyclerView_list.setLayoutManager(new LinearLayoutManager(this));
         listAdapter = new DataListAdapter();
+        recyclerView_list.addItemDecoration(new DividerItemDecoration(this,1));
         recyclerView_list.setAdapter(listAdapter);
 
     }
