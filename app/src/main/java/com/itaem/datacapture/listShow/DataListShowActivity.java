@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.bin.david.form.core.SmartTable;
@@ -18,6 +19,7 @@ import com.bin.david.form.data.column.Column;
 import com.bin.david.form.data.column.ColumnInfo;
 import com.bin.david.form.listener.OnColumnClickListener;
 import com.google.android.material.appbar.MaterialToolbar;
+import com.itaem.datacapture.Factory.Factory;
 import com.itaem.datacapture.R;
 import com.itaem.datacapture.Utils.AddressBookUtil;
 import com.itaem.datacapture.Utils.AppListUtil;
@@ -45,6 +47,7 @@ public class DataListShowActivity extends AppCompatActivity {
     RecyclerView recyclerView_list;
     DataListAdapter listAdapter;
     MaterialToolbar toolbar;
+    ProgressBar progressBar;
     private boolean isTable = true;// 是否为表格布局状态
     private String data_type;// 当前布局的列表数据类型，需要调整适配器布局
     @Override
@@ -61,6 +64,7 @@ public class DataListShowActivity extends AppCompatActivity {
         recyclerView_list = findViewById(R.id.rv_list);
         toolbar = findViewById(R.id.toolbar_list);
         table = findViewById(R.id.table);
+        progressBar = findViewById(R.id.progress);
         setSupportActionBar(toolbar);
         recyclerView_list.setLayoutManager(new LinearLayoutManager(this));
         listAdapter = new DataListAdapter();
@@ -77,13 +81,16 @@ public class DataListShowActivity extends AppCompatActivity {
                 table.setData(addressBookBean);
                 break;
             case "AppList":
+                progressBar.setVisibility(View.VISIBLE);
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        List<AppListBean> appListBean = AppListUtil.getAppListBean(DataListShowActivity.this);
+//                        List<AppListBean> appListBean = AppListUtil.getAppListBean(DataListShowActivity.this);
+                        List<AppListBean> appListBean = new Factory().getDataUtil(AppListUtil.class).getData(DataListShowActivity.this);
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
+                                progressBar.setVisibility(View.GONE);
                                 table.setData(appListBean);
                             }
                         });

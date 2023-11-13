@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--自定义dialog背景全透明无边框theme -->
+    <style name="DialogBaseStyle" parent="android:style/Theme.Dialog">
+        <!--背景颜色及和透明程度-->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!--去除标题 -->
+        <item name="android:windowNoTitle">true</item>
+        <!--去除边框-->
+        <item name="android:windowFrame">@null</item>
+        <!--浮现在activity之上-->
+        <item name="android:windowIsFloating">true</item>
+        <!--模糊-->
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+</resources>

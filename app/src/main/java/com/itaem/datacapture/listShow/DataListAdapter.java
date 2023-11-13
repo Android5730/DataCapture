@@ -16,6 +16,7 @@ import com.bumptech.glide.Glide;
 import com.itaem.datacapture.R;
 import com.itaem.datacapture.bean.AddressBookBean;
 import com.itaem.datacapture.bean.AppListBean;
+import com.itaem.datacapture.dialog.AppBeanDialog;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -70,14 +71,27 @@ public class DataListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         TextView item_app_name;
         TextView item_app_pageName;
         TextView item_app_versionCode;
+        private AppListBean bean;
         public AppListViewHolder(@NonNull View itemView) {
             super(itemView);
             item_app_icon = itemView.findViewById(R.id.item_app_icon);
             item_app_name = itemView.findViewById(R.id.item_app_name);
             item_app_pageName = itemView.findViewById(R.id.item_app_pageName);
             item_app_versionCode = itemView.findViewById(R.id.item_app_versionCode);
+            initClick();
         }
+
+        private void initClick() {
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    new AppBeanDialog(itemView.getContext(),bean).show();
+                }
+            });
+        }
+
         private void setViewHolderData(AppListBean appListBean){
+            bean = appListBean;
             item_app_name.setText(appListBean.getApp_name());
             item_app_pageName.setText("包名:"+appListBean.getPackage_name());
             item_app_versionCode.setText("版本号:"+appListBean.getVersion_code());

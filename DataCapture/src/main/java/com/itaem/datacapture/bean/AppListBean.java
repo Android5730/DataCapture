@@ -9,7 +9,7 @@ import java.io.Serializable;
 
 // 作者:ITAEM 陈金城
 @SmartTable(name="应用列表")
-public  class AppListBean implements Serializable {
+public  class AppListBean extends ShowListBean implements Serializable {
     /**
      * app_name : string
      * app_type : string

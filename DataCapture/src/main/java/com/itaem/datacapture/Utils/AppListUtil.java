@@ -2,25 +2,21 @@ package com.itaem.datacapture.Utils;// 2023/8/13
 
 
 import android.content.Context;
-import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
-import android.content.pm.Attribution;
-import android.content.pm.ConfigurationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.content.pm.PermissionInfo;
-import android.content.pm.ServiceInfo;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 
 import com.itaem.datacapture.bean.AppListBean;
+import com.itaem.datacapture.bean.ShowListBean;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 // 作者:ITAEM 陈金城
-public class AppListUtil {
+public class AppListUtil extends DataUtil{
     /**
      * 获取列表
      */
@@ -55,5 +51,10 @@ public class AppListUtil {
             }
         }
         return appListBeans;
+    }
+
+    @Override
+    public <T extends ShowListBean> List<T> getData(Context context) {
+        return (List<T>) getAppListBean(context);
     }
 }
