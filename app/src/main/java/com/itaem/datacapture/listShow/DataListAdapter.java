@@ -59,6 +59,7 @@ public class DataListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                 }
             });
 
+
         }
 
         private void setViewHolderData(AddressBookBean addressBookBean){

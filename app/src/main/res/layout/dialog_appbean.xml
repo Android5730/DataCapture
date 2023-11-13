@@ -112,4 +112,33 @@
         android:layout_marginTop="@dimen/dp_8"
         app:layout_constraintTop_toBottomOf="@+id/dialog_appVersionCode"
         app:layout_constraintStart_toStartOf="@+id/dialog_appVersionCode"/>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/dialog_toPlayShop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#E86F51"
+        android:text="跳转应用商店"
+        android:layout_marginTop="@dimen/dp_4"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_toDetails"
+        app:layout_constraintStart_toStartOf="@+id/dialog_toDetails"/>
+    <TextView
+        android:id="@+id/dialog_tv_timeStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="时间类型为:毫秒"
+        android:textColor="#666666"
+        android:textSize="@dimen/cpt_10sp"
+        android:layout_marginEnd="@dimen/dp_4"
+        app:layout_constraintEnd_toStartOf="@id/dialog_iv_timeStyle"
+        app:layout_constraintTop_toTopOf="@+id/dialog_iv_timeStyle"
+        app:layout_constraintBottom_toBottomOf="@+id/dialog_iv_timeStyle"/>
+    <ImageView
+        android:id="@+id/dialog_iv_timeStyle"
+        android:layout_width="@dimen/dp_24"
+        android:layout_height="@dimen/dp_24"
+        android:src="@drawable/time"
+        android:layout_marginEnd="@dimen/dp_8"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_toPlayShop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
